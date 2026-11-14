@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#071626" />
+  <meta name="description" content="Messi Quiz: cinco preguntas, cien puntos. ¿Cuánto sabés del 10?" />
+  <title>Messi Quiz | El desafío del 10</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <a href="#" class="brand" aria-label="Messi Quiz, inicio"><span class="brand-mark">10</span><span>MESSI<span class="brand-accent">QUIZ</span><small>EL DESAFÍO DEL DIEZ</small></span></a>
+    <div class="header-actions"><span class="header-pill"><span class="live-dot"></span> TRIVIA FUTBOLERA</span><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Activar o desactivar sonidos">🔊 Sonido</button></div>
+  </header>
+  <main class="main-shell">
+    <section id="inicio" class="screen hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>★ ★ ★</span> LA LEYENDA CONTINÚA</div>
+        <h1 id="hero-title">¿CUÁNTO SABÉS<br>DEL <em>GOAT?</em></h1>
+        <p class="hero-subtitle">Del primer gol en Barcelona a la gloria en Qatar. Demostrá que sos un verdadero fan de Lionel Messi.</p>
+        <div class="stats"><div><strong>05</strong><span>PREGUNTAS</span></div><div><strong>20</strong><span>PTS / ACIERTO</span></div><div><strong>100</strong><span>PUNTOS MÁX.</span></div></div>
+        <button id="btn-comenzar" class="primary-btn">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
+        <p class="microcopy">Gratis · Sin registro · Preguntas al azar</p><div class="hero-tagline">🇦🇷 CINCO PREGUNTAS. UNA SOLA LEYENDA.</div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
+    </section>
+    <section id="juego" class="screen game-screen oculto" aria-labelledby="texto-pregunta">
+      <div class="game-top"><span class="eyebrow">EL DESAFÍO DEL 10</span><span id="puntuacion" class="score-pill">★ 0 PUNTOS</span></div>
+      <div class="question-meta"><span id="numero-pregunta">PREGUNTA 01 / 05</span><span id="progreso-texto">20% COMPLETADO</span></div>
+      <div class="progress-track"><div id="progreso" class="progress-fill"></div></div>
+      <article class="question-card"><div class="question-kicker"><span class="round-icon">⚽</span> PONÉ A PRUEBA TU MEMORIA</div><h2 id="texto-pregunta"></h2><div id="opciones" class="options"></div><p id="mensaje" class="feedback" aria-live="polite"></p></article>
+      <button id="btn-siguiente" class="primary-btn next-btn oculto">SIGUIENTE PREGUNTA <span aria-hidden="true">→</span></button>
+    </section>
+    <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow">FINAL DEL PARTIDO</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ 100 PUNTOS</span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p><button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
+  </main>
+  <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span>HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
+</body>
+</html>
