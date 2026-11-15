@@ -42,3 +42,63 @@
 @keyframes correct-pulse{50%{box-shadow:0 0 0 4px #64e3ae44}}
 @media(max-width:760px){.header-actions{gap:6px}.sound-toggle{padding:9px;font-size:10px}.header-pill{display:none}.hero-art{height:300px}.messi-photo{height:100%}.hero-tagline{font-size:10px}.score-submit,.leaderboard{padding:16px}.score-form-row{flex-direction:column}.score-form-row .primary-btn{width:100%}.ranking-row{grid-template-columns:30px minmax(0,1fr) auto;gap:7px}.results-screen{width:100%}.home-leaderboard{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){.messi-photo,.results-enter,.answer-pop,.option.correct{animation:none!important}}
+
+/* Ascensos de nivel: la celebracion aumenta hasta la llegada a Antonela. */
+.celebration-screen{--party-color:#62ddff;position:fixed;inset:0;z-index:20;display:grid;place-items:center;overflow:hidden;padding:22px;background:radial-gradient(circle at 50% 42%,#165a78 0,#0a2639 57%,#04111d 100%);isolation:isolate;animation:party-screen-in .5s ease-out both}
+.celebration-screen.oculto{display:none!important}
+.celebration-screen.fiesta-2{--party-color:#85d9f3;background:radial-gradient(circle at 50% 42%,#174f9a 0,#aa293b 38%,#0a2639 72%,#04111d 100%)}
+.celebration-screen.fiesta-3{--party-color:#e6435b;background:radial-gradient(circle at 50% 42%,#a6243c 0,#173d7d 48%,#071626 100%)}
+.celebration-screen.fiesta-4{--party-color:#9be5fb;background:radial-gradient(circle at 50% 42%,#277eaf 0,#0e345c 56%,#071626 100%)}
+.celebration-screen.fiesta-5{--party-color:#f2d77c;background:radial-gradient(circle at 50% 42%,#1a62a0 0,#215277 42%,#101e36 100%)}
+.celebration-screen.fiesta-6{--party-color:#ff82ac;background:radial-gradient(circle at 50% 42%,#b72b62 0,#4a1c3d 40%,#101726 82%,#05080e 100%)}
+.celebration-card{position:relative;z-index:2;width:min(590px,100%);padding:clamp(28px,5vw,52px);border:1px solid #ffffff45;border-radius:28px;background:linear-gradient(150deg,#102b40ed,#091d30f2);text-align:center;box-shadow:0 25px 100px #0008,0 0 55px color-mix(in srgb,var(--party-color) 35%,transparent);animation:party-card-in .75s cubic-bezier(.18,.82,.25,1.2) both}
+.celebration-kicker,.celebration-next-label{color:var(--party-color);font-size:11px;font-weight:900;letter-spacing:3px}
+.celebration-photo-frame{position:relative;width:min(460px,100%);height:245px;margin:10px auto 13px;overflow:hidden;border:1px solid #8ddff5;border-radius:17px;background:linear-gradient(135deg,#153d60,#091a2b);box-shadow:0 12px 30px #0007;animation:party-card-in .65s .08s both}
+#celebration-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 34%;}
+.celebration-photo-frame:after{content:'';position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#061929aa);pointer-events:none}
+.celebration-photo-credit{position:absolute;z-index:1;left:10px;right:10px;bottom:8px;text-align:left;font-size:9px;line-height:1.3;color:#e7f5fa;text-shadow:0 1px 4px #000}
+.celebration-photo-credit a{color:inherit;text-decoration:none}.celebration-photo-credit a:hover{text-decoration:underline}
+.celebration-card h2{margin:10px 0 8px;font:900 clamp(42px,8vw,72px)/.94 'Barlow Condensed',Impact,sans-serif;text-shadow:0 4px 20px #0008}
+.celebration-passed{margin:0;color:#d0e3ee;font-size:15px;font-weight:700}
+.celebration-arrow{margin:13px 0 2px;color:var(--party-color);font-size:26px;animation:party-arrow .7s ease-in-out infinite alternate}
+.celebration-next{margin:7px 0 18px;color:#fff;font:900 clamp(24px,5vw,38px)/1 'Barlow Condensed',Impact,sans-serif}
+.celebration-progress{display:flex;justify-content:center;gap:8px;margin:20px 0 26px}
+.celebration-progress span{width:13px;height:13px;border:1px solid #7692a4;border-radius:50%;background:#172e40}
+.celebration-progress span.done{border-color:var(--party-color);background:var(--party-color);box-shadow:0 0 12px color-mix(in srgb,var(--party-color) 75%,transparent)}
+.celebration-button{margin:auto;justify-content:center;min-width:min(300px,100%);background:var(--party-color)}
+.party-confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.party-confetti i{position:absolute;top:-12vh;left:var(--x);width:var(--w);height:var(--h);border-radius:2px;background:var(--c);opacity:.95;transform:rotate(var(--r));animation:paper-fall var(--d) var(--delay) cubic-bezier(.2,.65,.45,1) forwards;box-shadow:0 0 9px color-mix(in srgb,var(--c) 55%,transparent)}
+@keyframes party-screen-in{from{opacity:0}to{opacity:1}}
+@keyframes party-card-in{from{opacity:0;transform:scale(.78) translateY(24px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes party-trophy{to{transform:translateY(-6px) rotate(7deg) scale(1.06)}}
+@keyframes party-arrow{to{transform:translateY(7px)}}
+@keyframes paper-fall{0%{transform:translate3d(0,-8vh,0) rotate(var(--r));opacity:0}10%{opacity:1}100%{transform:translate3d(var(--drift),115vh,0) rotate(calc(var(--r) + 900deg));opacity:.9}}
+@keyframes firework-pop{0%{opacity:0;transform:scale(.1) rotate(-30deg)}35%{opacity:.95;transform:scale(1.25) rotate(12deg)}70%{opacity:.8;transform:scale(.92) rotate(-8deg)}100%{opacity:0;transform:scale(1.6) rotate(25deg)}}
+@media(max-width:600px){.celebration-screen{padding:14px;overflow-y:auto}.celebration-card{padding:25px 18px;border-radius:22px}.celebration-photo-frame{height:205px}}
+@media(prefers-reduced-motion:reduce){.celebration-screen,.celebration-card,.celebration-photo-frame,.celebration-arrow,.party-confetti i{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* Más presencia para el nivel actual y menos aire antes de la pregunta. */
+body[data-screen="juego"] .site-header,body[data-screen="juego"] .site-footer{margin:0 auto}
+body[data-screen="juego"] .main-shell{align-items:start;margin:0 auto;padding-top:10px;padding-bottom:24px}
+body[data-screen="juego"] .game-screen{margin:0 auto}
+.game-screen{max-width:900px}
+.game-top{position:relative;min-height:76px;justify-content:center;margin-bottom:8px;padding:0 190px}
+#nivel-actual{display:block;width:max-content;max-width:100%;padding:15px 23px;border:1px solid #b8edff;border-radius:14px;background:linear-gradient(180deg,#72d6f1 0 31%,#f7fcff 31% 68%,#72d6f1 68%);color:#092d4b;text-align:center;font:900 clamp(16px,2.1vw,22px)/1.1 'DM Sans',Arial,sans-serif;letter-spacing:1.8px;text-shadow:0 1px #fff;box-shadow:0 5px 22px #39b8e344}
+.game-top .score-pill{position:absolute;right:0;top:50%;transform:translateY(-50%);white-space:nowrap}
+.question-meta{margin-top:4px}
+.progress-track{margin:8px 0 17px}
+.question-card{padding:28px 35px}
+@media(max-width:600px){body[data-screen="juego"] .main-shell{padding-top:14px}.game-top{min-height:0;padding:0;gap:10px;flex-direction:column}.game-top .score-pill{position:static;transform:none}.question-meta{margin-top:12px;align-items:flex-start}.question-meta span:last-child{text-align:right}.progress-track{margin:8px 0 14px}#nivel-actual{width:100%;padding:13px 12px;font-size:16px;letter-spacing:1px}.question-card{padding:24px 18px}}
+.hero-copy .stats{max-width:360px}
+
+/* Cada ronda toma la identidad del club o la selección de esa etapa. */
+body[data-level-theme]{transition:background .65s ease}
+body[data-level-theme="argentina"]{--team-primary:#74d8f3;--team-secondary:#f8fcff;--team-border:#4286a5;--team-panel:#15354a;--team-glow:#3bbde322;background:radial-gradient(circle at 82% 22%,#3585a5 0,transparent 36%),linear-gradient(135deg,#071a2a,#0d3d5a 52%,#071a2a)}
+body[data-level-theme="barcelona"]{--team-primary:#e14352;--team-secondary:#2859a4;--team-border:#b83b52;--team-panel:#202d49;--team-glow:#d9365230;background:radial-gradient(circle at 82% 22%,#a92c48 0,transparent 36%),linear-gradient(135deg,#10182d,#183b70 48%,#641f37 100%)}
+body[data-level-theme="inter-miami"]{--team-primary:#ff78a6;--team-secondary:#f7f4f7;--team-border:#a94469;--team-panel:#282235;--team-glow:#ff5e9728;background:radial-gradient(circle at 82% 22%,#9c345c 0,transparent 36%),linear-gradient(135deg,#090b12,#261724 52%,#090b12)}
+body[data-level-theme] .question-card{background:linear-gradient(145deg,var(--team-panel),#0e2639);border-color:var(--team-border);box-shadow:0 22px 60px #0003,0 0 36px var(--team-glow)}
+body[data-level-theme] .progress-fill{background:linear-gradient(90deg,var(--team-primary),var(--team-secondary))}
+body[data-level-theme] .score-pill{border-color:var(--team-border)}
+body[data-level-theme] .option-letter{color:var(--team-primary)}
+body[data-level-theme="barcelona"] #nivel-actual{background:linear-gradient(90deg,#17376f 0 34%,#c82e43 34% 67%,#17376f 67%);border-color:#ee6979;color:#fff;text-shadow:0 2px 5px #0008;box-shadow:0 5px 22px #b7244544}
+body[data-level-theme="inter-miami"] #nivel-actual{background:linear-gradient(90deg,#17131e 0 34%,#f36e9e 34% 67%,#17131e 67%);border-color:#ff91b5;color:#fff;text-shadow:0 2px 5px #0008;box-shadow:0 5px 22px #ec478444}
