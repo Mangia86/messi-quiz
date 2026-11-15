@@ -166,9 +166,3 @@ $('score-form').addEventListener('submit',guardarResultado);
 $('btn-ranking').addEventListener('click',()=>cargarRanking('resultados'));
 $('btn-ranking-inicio').addEventListener('click',()=>cargarRanking('inicio'));
 cargarRanking('inicio');
-$('brand-home').addEventListener('click',event=>{
-  event.preventDefault();
-  pantalla('inicio');
-  cargarRanking('inicio');
-  window.scrollTo({top:0,behavior:'smooth'});
-});
