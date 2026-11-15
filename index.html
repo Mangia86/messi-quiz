@@ -7,6 +7,7 @@
   <meta name="description" content="Messi Quiz: cinco preguntas, cien puntos. ¿Cuánto sabés del 10?" />
   <title>Messi Quiz | El desafío del 10</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -34,7 +35,10 @@
       <article class="question-card"><div class="question-kicker"><span class="round-icon">⚽</span> PONÉ A PRUEBA TU MEMORIA</div><h2 id="texto-pregunta"></h2><div id="opciones" class="options"></div><p id="mensaje" class="feedback" aria-live="polite"></p></article>
       <button id="btn-siguiente" class="primary-btn next-btn oculto">SIGUIENTE PREGUNTA <span aria-hidden="true">→</span></button>
     </section>
-    <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow">FINAL DEL PARTIDO</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ 100 PUNTOS</span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p><button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
+  <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow">FINAL DEL PARTIDO</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ 100 PUNTOS</span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p>
+    <section class="score-submit" aria-labelledby="save-title"><h3 id="save-title">SUMÁ TU RESULTADO AL RANKING</h3><form id="score-form"><label for="player-name">Tu nombre</label><div class="score-form-row"><input id="player-name" name="nombre" type="text" maxlength="40" autocomplete="name" placeholder="¿Cómo te llamás?" required><button id="btn-guardar" class="primary-btn" type="submit">GUARDAR PUNTUACIÓN</button></div></form><p id="save-status" class="save-status" aria-live="polite"></p></section>
+    <section class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-list" class="ranking-list"></ol></section>
+    <button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
   </main>
   <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span>HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
 </body>

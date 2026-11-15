@@ -13,10 +13,15 @@ const preguntas = [
 ];
 const TOTAL=5, PUNTOS=20;
 let seleccionadas=[],actual=0,puntos=0,respondida=false;
+// La Publishable Key está diseñada para uso público en el navegador. La tabla debe
+// tener políticas RLS que permitan SELECT e INSERT según la política del proyecto.
+const SUPABASE_URL='https://ezyhytwqulwpdvfsxgte.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_EX6iCsuW_VegLut-GuwZCw_LI0G8fSI';
+let partidaGuardada=false;
 const $=id=>document.getElementById(id);
 function mezclar(lista){const copia=[...lista];for(let i=copia.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copia[i],copia[j]]=[copia[j],copia[i]];}return copia;}
 function pantalla(nombre){['inicio','juego','resultado'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));}
-function comenzar(){seleccionadas=mezclar(preguntas).slice(0,TOTAL);actual=0;puntos=0;pantalla('juego');mostrar();}
+function comenzar(){seleccionadas=mezclar(preguntas).slice(0,TOTAL);actual=0;puntos=0;partidaGuardada=false;$('score-form').reset();$('save-status').textContent='';$('btn-guardar').disabled=false;pantalla('juego');mostrar();}
 function mostrar(){respondida=false;const p=seleccionadas[actual];$('numero-pregunta').textContent=`PREGUNTA ${String(actual+1).padStart(2,'0')} / 05`;$('progreso-texto').textContent=`${Math.round((actual+1)/TOTAL*100)}% COMPLETADO`;$('progreso').style.width=`${(actual+1)/TOTAL*100}%`;$('puntuacion').textContent=`★ ${puntos} PUNTOS`;$('texto-pregunta').textContent=p.pregunta;$('mensaje').textContent='';$('btn-siguiente').classList.add('oculto');const cont=$('opciones');cont.replaceChildren();p.opciones.forEach((texto,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='option';const letra=document.createElement('span');letra.className='option-letter';letra.textContent='ABCD'[i];const contenido=document.createElement('span');contenido.textContent=texto;btn.append(letra,contenido);btn.addEventListener('click',()=>responder(i));cont.appendChild(btn);});}
 function responder(indice){if(respondida)return;respondida=true;const p=seleccionadas[actual];$('opciones').querySelectorAll('button').forEach((btn,i)=>{btn.disabled=true;if(i===p.correcta)btn.classList.add('correct');else if(i===indice)btn.classList.add('wrong');});sonar(indice===p.correcta);if(indice===p.correcta){puntos+=PUNTOS;$('mensaje').textContent='✓ ¡CORRECTO! SUMASTE 20 PUNTOS';$('mensaje').style.color='#78edb6';}else{$('mensaje').textContent=`✕ LA RESPUESTA CORRECTA ERA: ${p.opciones[p.correcta]}`;$('mensaje').style.color='#ff9ca5';}$('puntuacion').textContent=`★ ${puntos} PUNTOS`;$('btn-siguiente').innerHTML=actual===TOTAL-1?'VER MI RESULTADO <span aria-hidden="true">→</span>':'SIGUIENTE PREGUNTA <span aria-hidden="true">→</span>';$('btn-siguiente').classList.remove('oculto');document.querySelector('.question-card').classList.remove('answer-pop');void document.querySelector('.question-card').offsetWidth;document.querySelector('.question-card').classList.add('answer-pop');}
 function siguiente(){if(!respondida)return;actual++;if(actual<TOTAL)mostrar();else resultado();}
@@ -69,8 +74,62 @@ function resultado(){
   $('result-persona').textContent = nivel.nombre;
   $('mensaje-final').textContent = nivel.mensaje;
   $('result-quote').textContent = nivel.frase;
+  cargarRanking();
   document.querySelector('.results-screen').classList.remove('results-enter');
   void document.querySelector('.results-screen').offsetWidth;
   document.querySelector('.results-screen').classList.add('results-enter');
 }
 $('btn-comenzar').addEventListener('click',comenzar);$('btn-siguiente').addEventListener('click',siguiente);$('btn-reiniciar').addEventListener('click',comenzar);
+
+function supabaseHeaders(extra={}) {
+  return { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`, ...extra };
+}
+async function respuestaSupabase(response) {
+  if (!response.ok) {
+    let detalle='';
+    try { const data=await response.json(); detalle=data.message || data.details || data.hint || ''; } catch (_) {}
+    throw new Error(detalle || `Error de Supabase (${response.status})`);
+  }
+  return response.status===204 ? null : response.json();
+}
+async function cargarRanking() {
+  const estado=$('ranking-status'), lista=$('ranking-list'), refresh=$('btn-ranking');
+  estado.textContent='Cargando ranking…'; lista.replaceChildren(); refresh.disabled=true;
+  try {
+    const url=new URL(`${SUPABASE_URL}/rest/v1/resultados`);
+    url.search=new URLSearchParams({select:'nombre,puntuacion,fecha',order:'puntuacion.desc,fecha.asc',limit:'10'});
+    const filas=await respuestaSupabase(await fetch(url,{headers:supabaseHeaders()}));
+    if (!filas.length) { estado.textContent='Todavía no hay resultados. ¡Sé el primero!'; return; }
+    estado.textContent='';
+    filas.forEach((fila,i)=>{
+      const li=document.createElement('li'), puesto=document.createElement('span'), nombre=document.createElement('span'), score=document.createElement('strong');
+      li.className='ranking-row'; puesto.className='ranking-place'; nombre.className='ranking-name'; score.className='ranking-score';
+      puesto.textContent=String(i+1).padStart(2,'0'); nombre.textContent=fila.nombre; score.textContent=`${fila.puntuacion} PTS`;
+      li.append(puesto,nombre,score); lista.append(li);
+    });
+  } catch (error) {
+    estado.textContent=`No se pudo cargar el ranking: ${error.message}. Revisa la conexión y las políticas de lectura (RLS) de Supabase.`;
+  } finally { refresh.disabled=false; }
+}
+async function guardarResultado(event) {
+  event.preventDefault();
+  if (partidaGuardada) return;
+  const nombre=$('player-name').value.trim();
+  if (!nombre) { $('save-status').textContent='Escribí tu nombre para continuar.'; return; }
+  const button=$('btn-guardar'), estado=$('save-status');
+  button.disabled=true; estado.textContent='Guardando puntuación…';
+  try {
+    const response=await fetch(`${SUPABASE_URL}/rest/v1/resultados`,{
+      method:'POST',headers:supabaseHeaders({'Content-Type':'application/json',Prefer:'return=minimal'}),
+      body:JSON.stringify({nombre,puntuacion:puntos})
+    });
+    await respuestaSupabase(response);
+    partidaGuardada=true; estado.textContent='¡Puntuación guardada!';
+    await cargarRanking();
+  } catch (error) {
+    button.disabled=false;
+    estado.textContent=`No se pudo guardar: ${error.message}. Revisa la conexión y las políticas de escritura (RLS) de Supabase.`;
+  }
+}
+$('score-form').addEventListener('submit',guardarResultado);
+$('btn-ranking').addEventListener('click',cargarRanking);
