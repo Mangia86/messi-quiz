@@ -9,7 +9,17 @@ const preguntas = [
   {pregunta:'¿En qué año ganó Messi su primera Champions League?',opciones:['2005','2006','2009','2011'],correcta:1},
   {pregunta:'¿Contra qué equipo marcó Messi su primer gol oficial con Barcelona?',opciones:['Real Madrid','Sevilla','Albacete','Valencia'],correcta:2},
   {pregunta:'¿Cuántos goles marcó Messi en el año natural 2012?',opciones:['73','82','91','100'],correcta:2},
-  {pregunta:'¿En qué estadio se disputó la final del Mundial 2022?',opciones:['Estadio Lusail','Estadio Al Bayt','Estadio 974','Estadio Internacional Khalifa'],correcta:0}
+  {pregunta:'¿En qué estadio se disputó la final del Mundial 2022?',opciones:['Estadio Lusail','Estadio Al Bayt','Estadio 974','Estadio Internacional Khalifa'],correcta:0},
+  {pregunta:'¿Qué número de camiseta utilizó Messi en el Barcelona antes de llevar el 10?',opciones:['7','19','11','18'],correcta:1},
+  {pregunta:'¿Contra qué selección debutó Messi con la selección argentina mayor en 2005?',opciones:['Paraguay','Brasil','Hungría','Uruguay'],correcta:2},
+  {pregunta:'¿Cuántos segundos aproximadamente estuvo Messi en cancha antes de ser expulsado en su debut con Argentina?',opciones:['45 segundos','90 segundos','3 minutos','10 minutos'],correcta:0},
+  {pregunta:'¿Qué equipo eliminó al Barcelona en las semifinales de la Champions League 2011-12?',opciones:['Bayern Múnich','Chelsea','Manchester United','Inter de Milán'],correcta:1},
+  {pregunta:'¿Quién era el entrenador del Barcelona cuando Messi debutó oficialmente con el primer equipo?',opciones:['Pep Guardiola','Luis Enrique','Frank Rijkaard','Ronald Koeman'],correcta:2},
+  {pregunta:'¿Contra qué selección marcó Messi su primer gol en un Mundial?',opciones:['Serbia y Montenegro','Costa de Marfil','Países Bajos','México'],correcta:0},
+  {pregunta:'¿Qué futbolista asistió a Messi en su primer gol oficial con el Barcelona?',opciones:['Ronaldinho','Xavi Hernández','Andrés Iniesta',"Samuel Eto'o"],correcta:0},
+  {pregunta:'¿Qué arquero le atajó un penal a Messi en la fase de grupos del Mundial de Qatar 2022?',opciones:['Hugo Lloris','Wojciech Szczęsny','Dominik Livaković','Andries Noppert'],correcta:1},
+  {pregunta:'¿Qué selección eliminó a Argentina en los cuartos de final del Mundial de Sudáfrica 2010?',opciones:['España','Países Bajos','Alemania','Brasil'],correcta:2},
+  {pregunta:'¿Qué dorsal utilizó Messi en su primera temporada con el PSG?',opciones:['10','19','7','30'],correcta:3}
 ];
 const TOTAL=5, PUNTOS=20;
 let seleccionadas=[],actual=0,puntos=0,respondida=false;
