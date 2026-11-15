@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#071626" />
   <meta name="description" content="Messi Quiz: seis niveles para demostrar cuánto sabés de Lionel Messi." />
   <title>Messi Quiz | El desafío del 10</title>
-  <link rel="stylesheet" href="style.css?v=remove-antonela-score" />
+  <link rel="stylesheet" href="style.css?v=gallery-photos" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="script.js?v=level-themed-backgrounds" defer></script>
+  <script src="script.js?v=max-total-1000" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
@@ -24,10 +24,15 @@
         <p class="hero-subtitle">Del primer gol en Barcelona a la gloria en Qatar. Demostrá que sos un verdadero fan de Lionel Messi.</p>
         <div class="stats"><div><strong>06</strong><span>NIVELES</span></div><div><strong>10</strong><span>PREGUNTAS POR NIVEL</span></div></div>
         <button id="btn-comenzar" class="primary-btn">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
+        <button id="btn-ver-galeria" class="gallery-open" type="button">VER FOTOS DE LOS NIVELES <span aria-hidden="true">→</span></button>
         <p class="microcopy">Gratis · Sin registro · 5 preguntas al azar por nivel</p><div class="hero-tagline">🇦🇷 SEIS NIVELES. UNA SOLA LEYENDA.</div>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
       <section id="ranking-inicio" class="leaderboard home-leaderboard" aria-labelledby="ranking-inicio-title"><div class="leaderboard-heading"><h2 id="ranking-inicio-title">RANKING MUNDIAL</h2><button id="btn-ranking-inicio" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></section>
+    </section>
+    <section id="galeria" class="screen gallery-screen oculto" aria-labelledby="gallery-title">
+      <div class="gallery-heading"><div><span class="eyebrow">MESSI QUIZ · FOTOS DEL DESAFÍO</span><h1 id="gallery-title">GALERÍA DE NIVELES</h1><p>Las fotos que aparecen en las celebraciones, disponibles para ver cuando quieras.</p></div><button id="btn-volver-inicio" class="gallery-back" type="button">← VOLVER AL INICIO</button></div>
+      <div id="photo-gallery-grid" class="photo-gallery-grid"></div>
     </section>
     <section id="juego" class="screen game-screen oculto" aria-labelledby="texto-pregunta">
       <div class="game-top"><span id="nivel-actual" class="eyebrow">NIVEL 1 · LA PULGA</span><span id="puntuacion" class="score-pill">★ 0 PUNTOS</span></div>

@@ -61,7 +61,7 @@ const nivelesJuego = [
     {pregunta:'¿A qué compañero asistió Messi para el segundo gol de Argentina contra México en Qatar 2022?',opciones:['Enzo Fernández','Julián Álvarez','Mac Allister','Lautaro Martínez'],correcta:0},
     {pregunta:'¿Contra qué equipo ganó Messi su primer título con Inter Miami, la Leagues Cup 2023?',opciones:['LAFC','Nashville SC','Philadelphia Union','FC Dallas'],correcta:1}
   ]},
-  {nombre:'Antonela Roccuzzo', dificultad:'Extrema', puntos:70, aciertos:5, preguntas:[
+  {nombre:'Antonela Roccuzzo', dificultad:'Extrema', puntos:65, aciertos:5, preguntas:[
     {pregunta:'¿Qué jugador del Porto fue expulsado en el amistoso de inauguración del Estádio do Dragão de 2003, partido en el que Messi debutó con el primer equipo del Barcelona?',opciones:['Jorge Costa','Ricardo Carvalho','Pedro Mendes','Ninguno'],correcta:3},
     {pregunta:'¿Qué número de camiseta utilizó Messi en su debut oficial con Barcelona contra el Espanyol en 2004?',opciones:['19','30','10','18'],correcta:1},
     {pregunta:'¿Qué futbolista argentino fue expulsado en el mismo partido en el que Messi debutó con Argentina contra Hungría?',opciones:['Juan Pablo Sorín','Lionel Scaloni','Ninguno, Messi fue el único argentino expulsado','Gabriel Heinze'],correcta:2},
@@ -74,6 +74,13 @@ const nivelesJuego = [
     {pregunta:'¿Contra qué equipo disputó Messi su último partido oficial con Barcelona?',opciones:['Atlético de Madrid','Celta de Vigo','Eibar','Real Sociedad'],correcta:1}
   ]}
 ];
+const fotosCelebracion=[
+  {archivo:'Leo_messi_barce_2005.jpg',titulo:'Lionel Messi con Barcelona',autor:'Josep Tomàs',licencia:'CC BY-SA 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Leo_messi_barce_2005.jpg',alt:'Messi juega para el Barcelona en 2005.'},
+  {archivo:'Messi_al_Gamper.jpg',titulo:'Messi en el Trofeo Joan Gamper',autor:'Tsutomu Takasu',licencia:'CC BY 2.0',pagina:'https://commons.wikimedia.org/wiki/File:Messi_al_Gamper.jpg',alt:'Messi en acción con el Barcelona.'},
+  {archivo:'Lionel_Messi_WC2022.jpg',titulo:'Lionel Messi con Argentina en Qatar 2022',autor:'Hossein Zohrevand / Tasnim News Agency',licencia:'CC BY 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Lionel_Messi_WC2022.jpg',alt:'Lionel Messi en acción con Argentina durante el Mundial de Qatar 2022.'},
+  {archivo:'Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',titulo:'Argentina campeona del mundo',autor:'Sebas',licencia:'CC BY 3.0',pagina:'https://commons.wikimedia.org/wiki/File:Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',alt:'Messi y Argentina celebran el título mundial de 2022.'},
+  {archivo:'LIONEL_MESSI_-_BRESH_MIAMI.jpg',titulo:'Messi y Antonela en Miami',autor:'Bresh',licencia:'CC BY-SA 4.0',pagina:'https://en.wikipedia.org/wiki/File:LIONEL_MESSI_-_BRESH_MIAMI.jpg',alt:'Messi y Antonela juntos fuera de la cancha.'}
+];
 let nivelActual=0, seleccionadas=[],actual=0,puntos=0,respondida=false,aciertosNivel=0,puntosTotales=0;
 const preguntasReservadas=new Map();
 // La Publishable Key está diseñada para uso público en el navegador. La tabla debe
@@ -83,7 +90,20 @@ const SUPABASE_PUBLISHABLE_KEY='sb_publishable_EX6iCsuW_VegLut-GuwZCw_LI0G8fSI';
 let partidaGuardada=false, guardandoPartida=false, intentoGuardadoIncierto=false;
 const $=id=>document.getElementById(id);
 function mezclar(lista){const copia=[...lista];for(let i=copia.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copia[i],copia[j]]=[copia[j],copia[i]];}return copia;}
-function pantalla(nombre){document.body.dataset.screen=nombre;['inicio','juego','celebracion','resultado'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));}
+function pantalla(nombre){document.body.dataset.screen=nombre;['inicio','juego','celebracion','resultado','galeria'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));}
+function cargarGaleriaFotos(){
+  const grid=$('photo-gallery-grid');
+  grid.replaceChildren();
+  fotosCelebracion.forEach((foto,index)=>{
+    const tarjeta=document.createElement('article');tarjeta.className='gallery-card';
+    const imagen=document.createElement('img');imagen.src=`https://commons.wikimedia.org/wiki/Special:FilePath/${foto.archivo}?width=1000`;imagen.alt=foto.alt;imagen.loading='lazy';
+    const texto=document.createElement('div');texto.className='gallery-card-copy';
+    const nivel=document.createElement('span');nivel.className='gallery-card-level';nivel.textContent=`NIVEL ${index+2}`;
+    const titulo=document.createElement('h2');titulo.textContent=foto.titulo;
+    const credito=document.createElement('a');credito.href=foto.pagina;credito.target='_blank';credito.rel='noopener noreferrer';credito.textContent=`Foto: ${foto.autor} · ${foto.licencia} · Ver fuente`;
+    texto.append(nivel,titulo,credito);tarjeta.append(imagen,texto);grid.appendChild(tarjeta);
+  });
+}
 function comenzar(){nivelActual=0;puntosTotales=0;preguntasReservadas.clear();$('score-submit').classList.remove('oculto');$('ranking-resultados').classList.remove('oculto');iniciarNivel();}
 function iniciarNivel(){
   const nivel=nivelesJuego[nivelActual];
@@ -93,7 +113,7 @@ function iniciarNivel(){
     $('result-persona').textContent=nivel.nombre.toUpperCase();
     $('mensaje-final').textContent='Este nivel todavía no tiene preguntas cargadas.';
     $('result-quote').textContent='Cuando agregues las preguntas de esta categoría, podrás continuar.';
-    $('puntos-finales').textContent=puntosTotales;$('max-puntos').textContent='1025';
+    $('puntos-finales').textContent=puntosTotales;$('max-puntos').textContent='1000';
     $('resumen-final').textContent=`Puntaje acumulado: ${puntosTotales}.`;
     $('score-submit').classList.add('oculto');$('ranking-resultados').classList.add('oculto');
     return;
@@ -139,14 +159,7 @@ function celebrarAscenso(anterior,siguiente){
   $('celebration-title').textContent=siguiente===5?'¡LLEGASTE A ANTONELA!':'¡NIVEL SUPERADO!';
   $('celebration-passed').textContent=`Completaste ${nivelVencido.nombre} · Nivel ${anterior+1}`;
   $('celebration-next').textContent=`${nivelNuevo.nombre} · NIVEL ${siguiente+1}`;
-  const fotos=[
-    {archivo:'Leo_messi_barce_2005.jpg',titulo:'Lionel Messi con Barcelona',autor:'Josep Tomàs',licencia:'CC BY-SA 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Leo_messi_barce_2005.jpg',alt:'Messi juega para el Barcelona en 2005.'},
-    {archivo:'Messi_al_Gamper.jpg',titulo:'Messi en el Trofeo Joan Gamper',autor:'Tsutomu Takasu',licencia:'CC BY 2.0',pagina:'https://commons.wikimedia.org/wiki/File:Messi_al_Gamper.jpg',alt:'Messi en acción con el Barcelona.'},
-    {archivo:'Lionel_Messi_WC2022.jpg',titulo:'Lionel Messi con Argentina en Qatar 2022',autor:'Hossein Zohrevand / Tasnim News Agency',licencia:'CC BY 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Lionel_Messi_WC2022.jpg',alt:'Lionel Messi en acción con Argentina durante el Mundial de Qatar 2022.'},
-    {archivo:'Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',titulo:'Argentina campeona del mundo',autor:'Sebas',licencia:'CC BY 3.0',pagina:'https://commons.wikimedia.org/wiki/File:Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',alt:'Messi y Argentina celebran el título mundial de 2022.'},
-    {archivo:'LIONEL_MESSI_-_BRESH_MIAMI.jpg',titulo:'Messi y Antonela en Miami',autor:'Bresh',licencia:'CC BY-SA 4.0',pagina:'https://en.wikipedia.org/wiki/File:LIONEL_MESSI_-_BRESH_MIAMI.jpg',alt:'Messi y Antonela juntos fuera de la cancha.'}
-  ];
-  const foto=fotos[siguiente-1],imagen=$('celebration-photo');
+  const foto=fotosCelebracion[siguiente-1],imagen=$('celebration-photo');
   imagen.alt=foto.alt;
   imagen.src=`https://commons.wikimedia.org/wiki/Special:FilePath/${foto.archivo}?width=1200`;
   imagen.onerror=()=>{imagen.onerror=null;imagen.src='https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=1000';};
@@ -220,7 +233,7 @@ function resultado({superado=false,antonela=false,partidaFinal=false}={}){
     ? {icono:'🏆',nombre:'¡SOS ANTONELA!',mensaje:'Sabés tanto de Messi que podrías contarle su propia vida. Ya no sos un fanático: sos parte de la familia.',frase:'Desafío definitivo completado: cinco de cinco en el nivel más difícil.'}
     : {icono:superado?'⚽':'🏁',nombre:superado?`NIVEL SUPERADO: ${nivelesJuego[nivelActual-1].nombre.toUpperCase()}`:`HASTA ACÁ LLEGASTE: ${nivelesJuego[nivelActual].nombre.toUpperCase()}`,mensaje:superado?'¡Cumpliste los aciertos necesarios y desbloqueaste el siguiente nivel!':(nivelActual===4&&aciertosNivel>=4?'Antonela se desbloquea únicamente con 100 puntos en D10S del Fútbol.':`Necesitabas ${nivelesJuego[nivelActual].aciertos} aciertos para avanzar.`),frase:superado?`Siguiente desafío: ${nivelesJuego[nivelActual].nombre}.`:'Podés volver a intentarlo para seguir avanzando.'};
   $('puntos-finales').textContent = puntosTotales;
-  $('max-puntos').textContent = String([100,200,325,475,675,1025][nivelActual] || 1025);
+  $('max-puntos').textContent = String([100,200,325,475,675,1000][nivelActual] || 1000);
   $('resumen-final').textContent = `Nivel ${nivelActual+1} · ${aciertosNivel} de ${TOTAL} respuestas correctas en esta ronda. Puntaje acumulado: ${puntosTotales}.`;
   $('results-icon').textContent = nivel.icono;
   $('result-persona').textContent = nivel.nombre;
@@ -233,6 +246,7 @@ function resultado({superado=false,antonela=false,partidaFinal=false}={}){
   document.querySelector('.results-screen').classList.add('results-enter');
 }
 $('btn-comenzar').addEventListener('click',comenzar);$('btn-siguiente').addEventListener('click',siguiente);$('btn-reiniciar').addEventListener('click',comenzar);$('btn-entrar-nivel').addEventListener('click',entrarAlNivel);
+$('btn-ver-galeria').addEventListener('click',()=>{cargarGaleriaFotos();pantalla('galeria');});$('btn-volver-inicio').addEventListener('click',()=>pantalla('inicio'));
 
 function supabaseHeaders(extra={}) {
   return { apikey: SUPABASE_PUBLISHABLE_KEY, Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`, ...extra };
