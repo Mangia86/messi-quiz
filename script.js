@@ -17,11 +17,11 @@ let seleccionadas=[],actual=0,puntos=0,respondida=false;
 // tener políticas RLS que permitan SELECT e INSERT según la política del proyecto.
 const SUPABASE_URL='https://ezyhytwqulwpdvfsxgte.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_EX6iCsuW_VegLut-GuwZCw_LI0G8fSI';
-let partidaGuardada=false;
+let partidaGuardada=false, guardandoPartida=false, intentoGuardadoIncierto=false;
 const $=id=>document.getElementById(id);
 function mezclar(lista){const copia=[...lista];for(let i=copia.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copia[i],copia[j]]=[copia[j],copia[i]];}return copia;}
-function pantalla(nombre){['inicio','juego','resultado'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));$('ranking-inicio').classList.add('oculto');}
-function comenzar(){seleccionadas=mezclar(preguntas).slice(0,TOTAL);actual=0;puntos=0;partidaGuardada=false;$('score-form').reset();$('save-status').textContent='';$('btn-guardar').disabled=false;pantalla('juego');mostrar();}
+function pantalla(nombre){['inicio','juego','resultado'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));}
+function comenzar(){seleccionadas=mezclar(preguntas).slice(0,TOTAL);actual=0;puntos=0;partidaGuardada=false;guardandoPartida=false;intentoGuardadoIncierto=false;$('score-form').reset();$('save-status').textContent='';$('btn-guardar').disabled=false;pantalla('juego');mostrar();}
 function mostrar(){respondida=false;const p=seleccionadas[actual];$('numero-pregunta').textContent=`PREGUNTA ${String(actual+1).padStart(2,'0')} / 05`;$('progreso-texto').textContent=`${Math.round((actual+1)/TOTAL*100)}% COMPLETADO`;$('progreso').style.width=`${(actual+1)/TOTAL*100}%`;$('puntuacion').textContent=`★ ${puntos} PUNTOS`;$('texto-pregunta').textContent=p.pregunta;$('mensaje').textContent='';$('btn-siguiente').classList.add('oculto');const cont=$('opciones');cont.replaceChildren();p.opciones.forEach((texto,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='option';const letra=document.createElement('span');letra.className='option-letter';letra.textContent='ABCD'[i];const contenido=document.createElement('span');contenido.textContent=texto;btn.append(letra,contenido);btn.addEventListener('click',()=>responder(i));cont.appendChild(btn);});}
 function responder(indice){if(respondida)return;respondida=true;const p=seleccionadas[actual];$('opciones').querySelectorAll('button').forEach((btn,i)=>{btn.disabled=true;if(i===p.correcta)btn.classList.add('correct');else if(i===indice)btn.classList.add('wrong');});sonar(indice===p.correcta);if(indice===p.correcta){puntos+=PUNTOS;$('mensaje').textContent='✓ ¡CORRECTO! SUMASTE 20 PUNTOS';$('mensaje').style.color='#78edb6';}else{$('mensaje').textContent=`✕ LA RESPUESTA CORRECTA ERA: ${p.opciones[p.correcta]}`;$('mensaje').style.color='#ff9ca5';}$('puntuacion').textContent=`★ ${puntos} PUNTOS`;$('btn-siguiente').innerHTML=actual===TOTAL-1?'VER MI RESULTADO <span aria-hidden="true">→</span>':'SIGUIENTE PREGUNTA <span aria-hidden="true">→</span>';$('btn-siguiente').classList.remove('oculto');document.querySelector('.question-card').classList.remove('answer-pop');void document.querySelector('.question-card').offsetWidth;document.querySelector('.question-card').classList.add('answer-pop');}
 function siguiente(){if(!respondida)return;actual++;if(actual<TOTAL)mostrar();else resultado();}
@@ -92,7 +92,12 @@ async function respuestaSupabase(response) {
     error.status=response.status;
     throw error;
   }
-  return response.status===204 ? null : response.json();
+  // PostgREST no devuelve cuerpo con Prefer: return=minimal (respuesta 201 vacía).
+  if (response.status===204 || response.status===205 || response.status===201 || response.headers.get('content-length')==='0') return null;
+  const tipo=response.headers.get('content-type') || '';
+  if (!tipo.includes('application/json')) return null;
+  const cuerpo=await response.text();
+  return cuerpo ? JSON.parse(cuerpo) : null;
 }
 async function cargarRanking(vista='resultados') {
   const inicio=vista==='inicio';
@@ -124,11 +129,11 @@ async function cargarRanking(vista='resultados') {
 }
 async function guardarResultado(event) {
   event.preventDefault();
-  if (partidaGuardada) return;
+  if (partidaGuardada || guardandoPartida || intentoGuardadoIncierto) return;
   const nombre=$('player-name').value.trim();
   if (!nombre) { $('save-status').textContent='Escribí tu nombre para continuar.'; return; }
   const button=$('btn-guardar'), estado=$('save-status');
-  button.disabled=true; estado.textContent='Guardando puntuación…';
+  guardandoPartida=true; button.disabled=true; estado.textContent='Guardando puntuación…';
   try {
     const abortador=new AbortController();
     const timeout=setTimeout(()=>abortador.abort(),12000);
@@ -137,26 +142,33 @@ async function guardarResultado(event) {
       method:'POST',headers:supabaseHeaders({'Content-Type':'application/json',Prefer:'return=minimal'}),
       body:JSON.stringify({nombre,puntuacion:puntos}),signal:abortador.signal
     }); } finally { clearTimeout(timeout); }
-    await respuestaSupabase(response);
+    // El POST usa return=minimal: basta el estado HTTP exitoso y no se intenta
+    // interpretar ningún cuerpo que PostgREST puede omitir por completo.
+    if (!response.ok) await respuestaSupabase(response);
     partidaGuardada=true; estado.textContent='¡Puntuación guardada!';
     void cargarRanking('resultados');
   } catch (error) {
-    button.disabled=false;
     const detalle=error.name==='AbortError'?'La solicitud tardó demasiado.':error.message;
-    estado.textContent=`No se pudo guardar: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas INSERT de RLS).`:''}`;
+    if (error.status) {
+      guardandoPartida=false;
+      button.disabled=false;
+      estado.textContent=`No se pudo guardar: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas INSERT de RLS).`:''}`;
+    } else {
+      // Si falla la conexión/timeout, el servidor pudo insertar antes de perderse la respuesta.
+      // Bloquear el reintento evita duplicar la misma partida desde esta interfaz.
+      guardandoPartida=false;
+      intentoGuardadoIncierto=true;
+      estado.textContent=`No se pudo confirmar el guardado: ${detalle}. Para evitar duplicados, esta partida queda bloqueada; actualizá el ranking para comprobar si se guardó.`;
+    }
   }
 }
 $('score-form').addEventListener('submit',guardarResultado);
 $('btn-ranking').addEventListener('click',()=>cargarRanking('resultados'));
-$('btn-ver-ranking-inicio').addEventListener('click',()=>{
-  $('ranking-inicio').classList.remove('oculto');
+$('btn-ranking-inicio').addEventListener('click',()=>cargarRanking('inicio'));
+cargarRanking('inicio');
+$('brand-home').addEventListener('click',event=>{
+  event.preventDefault();
+  pantalla('inicio');
   cargarRanking('inicio');
-  $('btn-cerrar-ranking').focus();
-});
-$('btn-cerrar-ranking').addEventListener('click',()=>{
-  $('ranking-inicio').classList.add('oculto');
-  $('btn-ver-ranking-inicio').focus();
-});
-$('ranking-inicio').addEventListener('click',event=>{
-  if(event.target===$('ranking-inicio')) $('btn-cerrar-ranking').click();
+  window.scrollTo({top:0,behavior:'smooth'});
 });

@@ -13,7 +13,7 @@
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
-    <a href="#" class="brand" aria-label="Messi Quiz, inicio"><span class="brand-mark">10</span><span>MESSI<span class="brand-accent">QUIZ</span><small>EL DESAFÍO DEL DIEZ</small></span></a>
+    <a href="#inicio" id="brand-home" class="brand" aria-label="Volver a la pantalla principal de Messi Quiz"><span class="brand-mark">10</span><span>MESSI<span class="brand-accent">QUIZ</span><small>EL DESAFÍO DEL DIEZ</small></span></a>
     <div class="header-actions"><span class="header-pill"><span class="live-dot"></span> TRIVIA FUTBOLERA</span><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Activar o desactivar sonidos">🔊 Sonido</button></div>
   </header>
   <main class="main-shell">
@@ -25,9 +25,9 @@
         <div class="stats"><div><strong>05</strong><span>PREGUNTAS</span></div><div><strong>20</strong><span>PTS / ACIERTO</span></div><div><strong>100</strong><span>PUNTOS MÁX.</span></div></div>
         <button id="btn-comenzar" class="primary-btn">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
         <p class="microcopy">Gratis · Sin registro · Preguntas al azar</p><div class="hero-tagline">🇦🇷 CINCO PREGUNTAS. UNA SOLA LEYENDA.</div>
-        <button id="btn-ver-ranking-inicio" class="ranking-link" type="button">VER RANKING MUNDIAL ↓</button>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
+      <section id="ranking-inicio" class="leaderboard home-leaderboard" aria-labelledby="ranking-inicio-title"><div class="leaderboard-heading"><h2 id="ranking-inicio-title">RANKING MUNDIAL</h2><button id="btn-ranking-inicio" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></section>
     </section>
     <section id="juego" class="screen game-screen oculto" aria-labelledby="texto-pregunta">
       <div class="game-top"><span class="eyebrow">EL DESAFÍO DEL 10</span><span id="puntuacion" class="score-pill">★ 0 PUNTOS</span></div>
@@ -41,7 +41,6 @@
     <section id="ranking-resultados" class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">El ranking se carga al abrir esta pantalla.</p><ol id="ranking-list" class="ranking-list"></ol></section>
     <button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
   </main>
-  <section id="ranking-inicio" class="ranking-overlay oculto" role="dialog" aria-modal="true" aria-labelledby="ranking-inicio-title"><div class="ranking-dialog"><div class="leaderboard-heading"><h2 id="ranking-inicio-title">RANKING MUNDIAL</h2><button id="btn-cerrar-ranking" class="ranking-refresh" type="button" aria-label="Cerrar ranking">CERRAR ✕</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Abriendo ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></div></section>
   <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span>HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
 </body>
 </html>

@@ -32,17 +32,13 @@
 .ranking-place{color:var(--gold);font-weight:900}
 .ranking-name{overflow-wrap:anywhere}
 .ranking-score{color:var(--sky);font-size:11px;letter-spacing:.5px}
-.ranking-link{display:inline-block;margin-top:18px;padding:0;border:0;background:none;color:var(--sky);font:800 11px 'DM Sans',sans-serif;letter-spacing:1.2px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
-.ranking-overlay{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:20px;background:#04101ddd;backdrop-filter:blur(8px)}
-.ranking-dialog{width:min(100%,520px);max-height:min(80vh,680px);overflow:auto;padding:24px;background:linear-gradient(145deg,#17344a,#0e2639);border:1px solid #42667a;border-radius:18px;box-shadow:0 25px 80px #0008}
-.ranking-dialog h2{margin:0;color:var(--sky);font-size:16px;letter-spacing:1.5px}
-.ranking-dialog .ranking-list{margin-top:8px}
-.ranking-dialog .ranking-status{margin-bottom:12px}
+.home-leaderboard{grid-column:1/-1;width:min(100%,780px);margin:10px auto 0}
+.home-leaderboard h2{margin:0 0 14px;color:var(--sky);font-size:12px;letter-spacing:1.5px}
 .answer-pop{animation:answer-pop .3s ease-out}
 .option.correct{animation:correct-pulse .4s ease-out}
 @keyframes rise-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes photo-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes answer-pop{50%{box-shadow:0 22px 65px #5dd6ff25}}
 @keyframes correct-pulse{50%{box-shadow:0 0 0 4px #64e3ae44}}
-@media(max-width:760px){.header-actions{gap:6px}.sound-toggle{padding:9px;font-size:10px}.header-pill{display:none}.hero-art{height:300px}.messi-photo{height:100%}.hero-tagline{font-size:10px}.score-submit,.leaderboard{padding:16px}.score-form-row{flex-direction:column}.score-form-row .primary-btn{width:100%}.ranking-row{grid-template-columns:30px minmax(0,1fr) auto;gap:7px}.results-screen{width:100%}.ranking-overlay{padding:12px}.ranking-dialog{padding:18px}}
+@media(max-width:760px){.header-actions{gap:6px}.sound-toggle{padding:9px;font-size:10px}.header-pill{display:none}.hero-art{height:300px}.messi-photo{height:100%}.hero-tagline{font-size:10px}.score-submit,.leaderboard{padding:16px}.score-form-row{flex-direction:column}.score-form-row .primary-btn{width:100%}.ranking-row{grid-template-columns:30px minmax(0,1fr) auto;gap:7px}.results-screen{width:100%}.home-leaderboard{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){.messi-photo,.results-enter,.answer-pop,.option.correct{animation:none!important}}
