@@ -74,6 +74,80 @@ const nivelesJuego = [
     {pregunta:'¿Contra qué equipo disputó Messi su último partido oficial con Barcelona?',opciones:['Atlético de Madrid','Celta de Vigo','Eibar','Real Sociedad'],correcta:1}
   ]}
 ];
+const preguntasEn = [
+  [
+    ['In which city was Messi born?',['Córdoba','Rosario','Buenos Aires','Santa Fe']],
+    ['In what year was Messi born?',['1985','1986','1987','1988']],
+    ['What is Messi’s full name?',['Lionel Andrés Messi Cuccittini','Lionel Antonio Messi','Lionel Alejandro Messi','Lionel Ángel Messi']],
+    ['Which shirt number made Messi famous at Barcelona?',['7','9','10','11']],
+    ['Which national team did he win the 2022 World Cup with?',['Spain','Argentina','Mozambique','None, he did not win the 2022 World Cup']],
+    ['Which team did Argentina face in the 2022 World Cup final?',['Croatia','Brazil','France','The Netherlands']],
+    ['What is Messi’s wife’s surname?',['Rodríguez','Roccuzzo','Fernández','Martínez']],
+    ['At which European club did Messi spend most of his career?',['Real Madrid','PSG','Manchester City','Barcelona']],
+    ['Which foot does Messi mainly use?',['Right','Left','Both equally','Neither, he is a goalkeeper']],
+    ['In which country was the World Cup Messi won held?',['Russia','Brazil','Qatar','Germany']]
+  ],
+  [
+    ['Which Rosario club did Messi play for before moving to Barcelona?',['Rosario Central',"Newell’s Old Boys",'Central Córdoba','Tiro Federal']],
+    ['Which number did Messi wear at Barcelona immediately before number 10?',['18','11','19','7']],
+    ['Who assisted Messi’s first official Barcelona goal?',['Xavi','Ronaldinho','Iniesta',"Eto’o"]],
+    ['Who was Barcelona’s manager when Messi made his official debut?',['Guardiola','Rijkaard','Luis Enrique','Koeman']],
+    ['Against which national team did Messi make his senior Argentina debut?',['Hungary','Brazil','Uruguay','Paraguay']],
+    ['Which French club did Messi play for?',['Marseille','Lyon','PSG','Monaco']],
+    ['Which US team did Messi start playing for in 2023?',['LA Galaxy','Inter Miami','New York City FC','Orlando City']],
+    ['Which shirt number did Messi wear in his first season at PSG?',['10','19','30','7']],
+    ['How many children does Messi have?',['Two','Three','Four','Five']],
+    ['In what year did Messi make his official first-team debut for Barcelona?',['2003','2004','2005','2006']]
+  ],
+  [
+    ['Against which team did Messi score his first official goal for Barcelona?',['Getafe','Albacete','Sevilla','Espanyol']],
+    ['Against which national team did Messi score his first World Cup goal?',['Mexico','Serbia and Montenegro','Nigeria','Ivory Coast']],
+    ['Against which team did Messi score four goals in a 2010 Champions League match?',['Arsenal','Chelsea','Inter','Bayern']],
+    ['At which stadium did Messi score a header in the 2009 Champions League final?',['Wembley','Stadio Olimpico in Rome','San Siro','Camp Nou']],
+    ['Against which national team did Messi score his first hat-trick for Argentina’s senior team?',['Brazil','Switzerland','Bolivia','Ecuador']],
+    ['Which goalkeeper saved Messi’s penalty at the 2022 World Cup in Qatar?',['Lloris','Szczęsny','Noppert','Livaković']],
+    ['Which national team did Argentina lose to in the 2014 World Cup final?',['Germany','Brazil','France','Italy']],
+    ['Who did Messi assist after getting past Gvardiol in the 2022 World Cup semifinal?',['Di María','Lautaro','Julián Álvarez','Enzo Fernández']],
+    ['Against which team did Messi score his first official goal for PSG?',['Lyon','Manchester City','Marseille','Lille']],
+    ['Which team eliminated Argentina in the 2010 World Cup quarterfinals?',['Spain','Germany','The Netherlands','Brazil']]
+  ],
+  [
+    ['How many official goals did Messi score in the 2012 calendar year?',['85','89','91','94']],
+    ['How many goals did Messi score for Barcelona in all competitions in the 2011–12 season?',['60','67','73','79']],
+    ['How many goals did Messi score in La Liga in 2011–12?',['44','46','48','50']],
+    ['How many Ballon d’Or awards had Messi won by the end of 2023?',['6','7','8','9']],
+    ['How many European Golden Shoes did Messi win during his Barcelona career?',['4','5','6','7']],
+    ['How many goals did Messi score in Spain’s top division?',['438','451','474','491']],
+    ['How many official goals did Messi finish with for Barcelona’s first team?',['634','650','672','701']],
+    ['Against which team did Messi score five goals in a 2012 Champions League match?',['Bayer Leverkusen','Arsenal','Milan','Celtic']],
+    ['Against which team did Messi score his famous solo goal in the 2015 Copa del Rey final?',['Sevilla','Valencia','Athletic Club','Real Madrid']],
+    ['At which stadium did Messi win his first Copa América with Argentina?',['Monumental','Maracanã','Mineirão','Centenario']]
+  ],
+  [
+    ['Against which team did Messi score two penalties in the 2005 FIFA U-20 World Cup final?',['Brazil','Nigeria','Spain','Colombia']],
+    ['Which team did Argentina beat in the 2008 Olympic final in Beijing?',['Cameroon','Brazil','Nigeria','The Netherlands']],
+    ['How many titles did Messi win with Barcelona in the historic 2009 calendar year?',['4','5','6','7']],
+    ['At which stadium did Messi score against Manchester United in the 2011 Champions League final?',['Stadio Olimpico in Rome','Wembley','Camp Nou','Old Trafford']],
+    ['Against which team did Messi score his 600th Barcelona goal with a free kick?',['Liverpool','Chelsea','Manchester United','Juventus']],
+    ['Against which team did Messi score his 500th official goal for Barcelona?',['Atlético Madrid','Sevilla','Real Madrid','Valencia']],
+    ['Which Bayern Munich defender fell during Messi’s famous move in the 2015 Champions League semifinal?',['Hummels','Boateng','Lahm','Alaba']],
+    ['Which team beat Argentina in the 2016 Copa América Centenario final?',['Uruguay','Brazil','Colombia','Chile']],
+    ['Which teammate did Messi assist for Argentina’s second goal against Mexico at Qatar 2022?',['Enzo Fernández','Julián Álvarez','Mac Allister','Lautaro Martínez']],
+    ['Which team did Messi beat to win his first title with Inter Miami, the 2023 Leagues Cup?',['LAFC','Nashville SC','Philadelphia Union','FC Dallas']]
+  ],
+  [
+    ['Which Porto player was sent off in the 2003 Estádio do Dragão opening friendly, in which Messi made his first-team Barcelona debut?',['Jorge Costa','Ricardo Carvalho','Pedro Mendes','None']],
+    ['Which shirt number did Messi wear on his official Barcelona debut against Espanyol in 2004?',['19','30','10','18']],
+    ['Which Argentine player was sent off in the match in which Messi debuted for Argentina against Hungary?',['Juan Pablo Sorín','Lionel Scaloni','None, Messi was the only Argentine sent off','Gabriel Heinze']],
+    ['Against which team did Messi score his first official hat-trick for Barcelona?',['Valencia','Real Madrid','Atlético Madrid','Sevilla']],
+    ['Who was in goal for Real Madrid when Messi scored his first hat-trick in the 2007 Clásico?',['Diego López','Keylor Navas','Iker Casillas','Jerzy Dudek']],
+    ['Against which national team did Messi score his first official goal for Argentina’s senior team?',['Croatia','Venezuela','Peru','Algeria']],
+    ['Which Barcelona player was substituted for Messi on his official debut against Espanyol?',['Deco',"Samuel Eto’o",'Henrik Larsson','Ludovic Giuly']],
+    ['Against which team did Messi score his first direct free-kick goal in an official Barcelona match?',['Atlético Madrid','Villarreal','Sevilla','Valencia']],
+    ['Which player received Messi’s assist for the winning goal in the 2008 Beijing Olympic final?',['Sergio Agüero','Ángel Di María','Ezequiel Lavezzi','Juan Román Riquelme']],
+    ['Against which team did Messi play his final official match for Barcelona?',['Atlético Madrid','Celta Vigo','Eibar','Real Sociedad']]
+  ]
+];
 const fotosCelebracion=[
   {archivo:'Leo_messi_barce_2005.jpg',titulo:'Lionel Messi con Barcelona',autor:'Josep Tomàs',licencia:'CC BY-SA 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Leo_messi_barce_2005.jpg',alt:'Messi juega para el Barcelona en 2005.'},
   {archivo:'Messi_al_Gamper.jpg',titulo:'Messi en el Trofeo Joan Gamper',autor:'Tsutomu Takasu',licencia:'CC BY 2.0',pagina:'https://commons.wikimedia.org/wiki/File:Messi_al_Gamper.jpg',alt:'Messi en acción con el Barcelona.'},
@@ -81,7 +155,20 @@ const fotosCelebracion=[
   {archivo:'Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',titulo:'Argentina campeona del mundo',autor:'Sebas',licencia:'CC BY 3.0',pagina:'https://commons.wikimedia.org/wiki/File:Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',alt:'Messi y Argentina celebran el título mundial de 2022.'},
   {archivo:'LIONEL_MESSI_-_BRESH_MIAMI.jpg',titulo:'Messi y Antonela en Miami',autor:'Bresh',licencia:'CC BY-SA 4.0',pagina:'https://en.wikipedia.org/wiki/File:LIONEL_MESSI_-_BRESH_MIAMI.jpg',alt:'Messi y Antonela juntos fuera de la cancha.'}
 ];
-let nivelActual=0, seleccionadas=[],actual=0,puntos=0,respondida=false,aciertosNivel=0,puntosTotales=0;
+const textosEn={
+  headerPill:'<span class="live-dot"></span> FOOTBALL TRIVIA',brandTagline:'THE NO. 10 CHALLENGE',sound:'🔊 Sound',heroEyebrow:'<span>★ ★ ★</span> THE LEGEND CONTINUES',
+  heroTitle:'HOW MUCH DO YOU KNOW<br>ABOUT THE <em>GOAT?</em>',heroSubtitle:'From his first Barcelona goal to glory in Qatar. Prove you are a true Lionel Messi fan.',artCaption:'THE STORY<br><b>IS WRITTEN WITH NO. 10</b>',
+  levels:'LEVELS',questionsPerLevel:'QUESTIONS PER LEVEL',start:'START THE CHALLENGE <span aria-hidden="true">↗</span>',openGallery:'VIEW LEVEL PHOTOS <span aria-hidden="true">→</span>',
+  microcopy:'Free · No sign-up · 5 random questions per level',heroTagline:'🇦🇷 SIX LEVELS. ONE LEGEND.',worldRanking:'WORLD RANKING',refresh:'REFRESH',
+  galleryEyebrow:'MESSI QUIZ · CHALLENGE PHOTOS',galleryTitle:'LEVEL GALLERY',gallerySubtitle:'Browse the photos shown in level celebrations whenever you like.',backHome:'← BACK TO HOME',
+  questionKicker:'<span class="round-icon">⚽</span> TEST YOUR MEMORY',unlocked:'UNLOCKED',nextLevel:'LET’S GO TO THE NEXT LEVEL! <span aria-hidden="true">→</span>',
+  levelFinal:'LEVEL SUMMARY',points:'POINTS',saveRanking:'ADD YOUR SCORE TO THE RANKING',yourName:'Your name',saveScore:'SAVE SCORE',playAgain:'PLAY AGAIN <span aria-hidden="true">↗</span>',
+  footer:'MADE FOR FOOTBALL FANS ⚽'
+};
+const nombresNivelEn=['The Flea','La Masia','The Number 10','GOAT Mode','D10S of Football','Antonela Roccuzzo'];
+let idiomaActual='es';
+try{idiomaActual=localStorage.getItem('messi-quiz-language')==='en'?'en':'es';}catch(_){/* idioma predeterminado */}
+let nivelActual=0, seleccionadas=[],actual=0,puntos=0,respondida=false,respuestaElegida=null,aciertosNivel=0,puntosTotales=0,ultimoResultado={};
 const preguntasReservadas=new Map();
 // La Publishable Key está diseñada para uso público en el navegador. La tabla debe
 // tener políticas RLS que permitan SELECT e INSERT según la política del proyecto.
@@ -89,6 +176,28 @@ const SUPABASE_URL='https://ezyhytwqulwpdvfsxgte.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY='sb_publishable_EX6iCsuW_VegLut-GuwZCw_LI0G8fSI';
 let partidaGuardada=false, guardandoPartida=false, intentoGuardadoIncierto=false;
 const $=id=>document.getElementById(id);
+function nombreNivel(index){return idiomaActual==='en'?nombresNivelEn[index]:nivelesJuego[index].nombre;}
+function textoPregunta(p){if(idiomaActual!=='en')return {pregunta:p.pregunta,opciones:p.opciones};const nivel=nivelesJuego.findIndex(n=>n.preguntas.includes(p));const indice=nivelesJuego[nivel].preguntas.indexOf(p);return preguntasEn[nivel][indice];}
+function aplicarIdioma(){
+  const ingles=idiomaActual==='en';document.documentElement.lang=idiomaActual;document.title=ingles?'Messi Quiz | The No. 10 Challenge':'Messi Quiz | El desafío del 10';
+  document.querySelector('meta[name="description"]').content=ingles?'Messi Quiz: six levels to prove how much you know about Lionel Messi.':'Messi Quiz: seis niveles para demostrar cuánto sabés de Lionel Messi.';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{if(el.dataset.originalHtml===undefined)el.dataset.originalHtml=el.innerHTML;el.innerHTML=ingles?(textosEn[el.dataset.i18n]||el.dataset.originalHtml):el.dataset.originalHtml;});
+  $('language-select').value=idiomaActual;
+  $('sound-toggle').textContent=ingles?(sonidoActivo?'🔊 Sound':'🔇 Muted'):(sonidoActivo?'🔊 Sonido':'🔇 Silencio');
+  $('sound-toggle').title=ingles?'Toggle sound':'Activar o desactivar sonidos';
+  $('language-select').setAttribute('aria-label',ingles?'Choose language':'Elegir idioma');
+  document.querySelector('.brand').setAttribute('aria-label',ingles?'Back to the Messi Quiz home screen':'Volver a la pantalla principal de Messi Quiz');
+  $('player-name').placeholder=ingles?'What is your name?':'¿Cómo te llamás?';
+  $('celebration-progress').setAttribute('aria-label',ingles?'Level progress':'Progreso de niveles');
+  if(partidaGuardada)$('save-status').textContent=ingles?'Score saved!':'¡Puntuación guardada!';
+  else if(guardandoPartida)$('save-status').textContent=ingles?'Saving score…':'Guardando puntuación…';
+  if(document.body.dataset.screen==='juego')actualizarTextosPregunta();
+  if(document.body.dataset.screen==='galeria')cargarGaleriaFotos();
+  if(document.body.dataset.screen==='celebracion'&&nivelActual>0)celebrarAscenso(nivelActual-1,nivelActual);
+  if(document.body.dataset.screen==='resultado'&&ultimoResultado)resultado(ultimoResultado);
+  if(document.body.dataset.screen==='inicio')void cargarRanking('inicio');
+}
+function idiomaCambiado(){idiomaActual=$('language-select').value;try{localStorage.setItem('messi-quiz-language',idiomaActual);}catch(_){/* el idioma se mantiene durante esta visita */}aplicarIdioma();}
 function mezclar(lista){const copia=[...lista];for(let i=copia.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copia[i],copia[j]]=[copia[j],copia[i]];}return copia;}
 function pantalla(nombre){document.body.dataset.screen=nombre;['inicio','juego','celebracion','resultado','galeria'].forEach(id=>$(id).classList.toggle('oculto',id!==nombre));}
 function cargarGaleriaFotos(){
@@ -96,11 +205,13 @@ function cargarGaleriaFotos(){
   grid.replaceChildren();
   fotosCelebracion.forEach((foto,index)=>{
     const tarjeta=document.createElement('article');tarjeta.className='gallery-card';
-    const imagen=document.createElement('img');imagen.src=`https://commons.wikimedia.org/wiki/Special:FilePath/${foto.archivo}?width=1000`;imagen.alt=foto.alt;imagen.loading='lazy';
+    const altsEn=['Messi playing for Barcelona in 2005.','Messi in action at the Joan Gamper Trophy.','Lionel Messi in action for Argentina during the 2022 World Cup in Qatar.','Messi and Argentina celebrate their 2022 World Cup title.','Messi and Antonela together off the pitch.'];
+    const imagen=document.createElement('img');imagen.src=`https://commons.wikimedia.org/wiki/Special:FilePath/${foto.archivo}?width=1000`;imagen.alt=idiomaActual==='en'?altsEn[index]:foto.alt;imagen.loading='lazy';
     const texto=document.createElement('div');texto.className='gallery-card-copy';
-    const nivel=document.createElement('span');nivel.className='gallery-card-level';nivel.textContent=`NIVEL ${index+2}`;
-    const titulo=document.createElement('h2');titulo.textContent=foto.titulo;
-    const credito=document.createElement('a');credito.href=foto.pagina;credito.target='_blank';credito.rel='noopener noreferrer';credito.textContent=`Foto: ${foto.autor} · ${foto.licencia} · Ver fuente`;
+    const nivel=document.createElement('span');nivel.className='gallery-card-level';nivel.textContent=idiomaActual==='en'?`LEVEL ${index+2}`:`NIVEL ${index+2}`;
+    const titulosEn=['Lionel Messi at Barcelona','Messi at the Joan Gamper Trophy','Lionel Messi with Argentina in Qatar 2022','World champions Argentina','Messi and Antonela in Miami'];
+    const titulo=document.createElement('h2');titulo.textContent=idiomaActual==='en'?titulosEn[index]:foto.titulo;
+    const credito=document.createElement('a');credito.href=foto.pagina;credito.target='_blank';credito.rel='noopener noreferrer';credito.textContent=idiomaActual==='en'?`Photo: ${foto.autor} · ${foto.licencia} · View source`:`Foto: ${foto.autor} · ${foto.licencia} · Ver fuente`;
     texto.append(nivel,titulo,credito);tarjeta.append(imagen,texto);grid.appendChild(tarjeta);
   });
 }
@@ -109,12 +220,12 @@ function iniciarNivel(){
   const nivel=nivelesJuego[nivelActual];
   if(nivel.preguntas.length<TOTAL){
     pantalla('resultado');
-    $('results-icon').textContent='🔒';$('result-title').textContent='NIVEL SIN PREGUNTAS';
-    $('result-persona').textContent=nivel.nombre.toUpperCase();
-    $('mensaje-final').textContent='Este nivel todavía no tiene preguntas cargadas.';
-    $('result-quote').textContent='Cuando agregues las preguntas de esta categoría, podrás continuar.';
+    $('results-icon').textContent='🔒';$('result-title').textContent=idiomaActual==='en'?'LEVEL HAS NO QUESTIONS':'NIVEL SIN PREGUNTAS';
+    $('result-persona').textContent=nombreNivel(nivelActual).toUpperCase();
+    $('mensaje-final').textContent=idiomaActual==='en'?'This level has no questions yet.':'Este nivel todavía no tiene preguntas cargadas.';
+    $('result-quote').textContent=idiomaActual==='en'?'Add questions to this category to continue.':'Cuando agregues las preguntas de esta categoría, podrás continuar.';
     $('puntos-finales').textContent=puntosTotales;$('max-puntos').textContent='1000';
-    $('resumen-final').textContent=`Puntaje acumulado: ${puntosTotales}.`;
+    $('resumen-final').textContent=idiomaActual==='en'?`Total score: ${puntosTotales}.`:`Puntaje acumulado: ${puntosTotales}.`;
     $('score-submit').classList.add('oculto');$('ranking-resultados').classList.add('oculto');
     return;
   }
@@ -134,11 +245,21 @@ function iniciarNivel(){
   if(elegida.origen>nivelActual){
     preguntasReservadas.set(elegida.origen,[...(preguntasReservadas.get(elegida.origen)||[]),elegida.pregunta]);
   }
-  actual=0;puntos=0;aciertosNivel=0;partidaGuardada=false;guardandoPartida=false;intentoGuardadoIncierto=false;
+  actual=0;puntos=0;aciertosNivel=0;respondida=false;respuestaElegida=null;partidaGuardada=false;guardandoPartida=false;intentoGuardadoIncierto=false;
   $('score-form').reset();$('save-status').textContent='';$('btn-guardar').disabled=false;pantalla('juego');mostrar();
 }
-function mostrar(){respondida=false;const p=seleccionadas[actual],nivel=nivelesJuego[nivelActual];const temas=['argentina','barcelona','barcelona','argentina','argentina','inter-miami'];document.body.dataset.levelTheme=temas[nivelActual];$('nivel-actual').textContent=`NIVEL ${nivelActual+1} · ${nivel.nombre.toUpperCase()}`;$('numero-pregunta').textContent=`PREGUNTA ${String(actual+1).padStart(2,'0')} / 05`;$('progreso-texto').textContent=`NIVEL ${nivelActual+1} DE 6 · ${aciertosNivel}/${nivel.aciertos} ACIERTOS PARA AVANZAR`;$('progreso').style.width=`${(actual+1)/TOTAL*100}%`;$('puntuacion').textContent=`★ ${puntosTotales+puntos} PUNTOS`;$('texto-pregunta').textContent=p.pregunta;$('mensaje').textContent='';$('btn-siguiente').classList.add('oculto');const cont=$('opciones');cont.replaceChildren();p.opciones.forEach((texto,i)=>{const btn=document.createElement('button');btn.type='button';btn.className='option';const letra=document.createElement('span');letra.className='option-letter';letra.textContent='ABCD'[i];const contenido=document.createElement('span');contenido.textContent=texto;btn.append(letra,contenido);btn.addEventListener('click',()=>responder(i));cont.appendChild(btn);});}
-function responder(indice){if(respondida)return;respondida=true;const p=seleccionadas[actual],nivel=nivelesJuego[nivelActual];$('opciones').querySelectorAll('button').forEach((btn,i)=>{btn.disabled=true;if(i===p.correcta)btn.classList.add('correct');else if(i===indice)btn.classList.add('wrong');});sonar(indice===p.correcta);if(indice===p.correcta){puntos+=nivel.puntos;aciertosNivel++;$('mensaje').textContent=`✓ ¡CORRECTO! SUMASTE ${nivel.puntos} PUNTOS`;$('mensaje').style.color='#78edb6';}else{$('mensaje').textContent=`✕ LA RESPUESTA CORRECTA ERA: ${p.opciones[p.correcta]}`;$('mensaje').style.color='#ff9ca5';}$('puntuacion').textContent=`★ ${puntosTotales+puntos} PUNTOS`;$('btn-siguiente').innerHTML=actual===TOTAL-1?'VER RESULTADO DEL NIVEL <span aria-hidden="true">→</span>':'SIGUIENTE PREGUNTA <span aria-hidden="true">→</span>';$('btn-siguiente').classList.remove('oculto');document.querySelector('.question-card').classList.remove('answer-pop');void document.querySelector('.question-card').offsetWidth;document.querySelector('.question-card').classList.add('answer-pop');}
+function actualizarTextosPregunta(){
+  const p=seleccionadas[actual],nivel=nivelesJuego[nivelActual],texto=textoPregunta(p),ingles=idiomaActual==='en';
+  const temas=['argentina','barcelona','barcelona','argentina','argentina','inter-miami'];document.body.dataset.levelTheme=temas[nivelActual];
+  $('nivel-actual').textContent=`${ingles?'LEVEL':'NIVEL'} ${nivelActual+1} · ${nombreNivel(nivelActual).toUpperCase()}`;
+  $('numero-pregunta').textContent=`${ingles?'QUESTION':'PREGUNTA'} ${String(actual+1).padStart(2,'0')} / 05`;
+  $('progreso-texto').textContent=`${ingles?'LEVEL':'NIVEL'} ${nivelActual+1} ${ingles?'OF':'DE'} 6 · ${aciertosNivel}/${nivel.aciertos} ${ingles?'CORRECT TO ADVANCE':'ACIERTOS PARA AVANZAR'}`;
+  $('progreso').style.width=`${(actual+1)/TOTAL*100}%`;$('puntuacion').textContent=`★ ${puntosTotales+puntos} ${ingles?'POINTS':'PUNTOS'}`;$('texto-pregunta').textContent=texto.pregunta;
+  $('opciones').querySelectorAll('button').forEach((btn,i)=>{btn.querySelector('.option-content').textContent=texto.opciones[i];btn.classList.toggle('correct',respondida&&i===p.correcta);btn.classList.toggle('wrong',respondida&&i===respuestaElegida);btn.disabled=respondida;});
+  if(respondida){const correcta=respuestaElegida===p.correcta;$('mensaje').textContent=correcta?(ingles?`✓ CORRECT! YOU EARNED ${nivel.puntos} POINTS`:`✓ ¡CORRECTO! SUMASTE ${nivel.puntos} PUNTOS`):(ingles?`✕ THE CORRECT ANSWER WAS: ${texto.opciones[p.correcta]}`:`✕ LA RESPUESTA CORRECTA ERA: ${texto.opciones[p.correcta]}`);$('mensaje').style.color=correcta?'#78edb6':'#ff9ca5';$('btn-siguiente').innerHTML=actual===TOTAL-1?(ingles?'VIEW LEVEL RESULTS <span aria-hidden="true">→</span>':'VER RESULTADO DEL NIVEL <span aria-hidden="true">→</span>'):(ingles?'NEXT QUESTION <span aria-hidden="true">→</span>':'SIGUIENTE PREGUNTA <span aria-hidden="true">→</span>');$('btn-siguiente').classList.remove('oculto');}else{$('mensaje').textContent='';$('btn-siguiente').classList.add('oculto');}
+}
+function mostrar(){respondida=false;respuestaElegida=null;const cont=$('opciones');cont.replaceChildren();for(let i=0;i<4;i++){const btn=document.createElement('button');btn.type='button';btn.className='option';const letra=document.createElement('span');letra.className='option-letter';letra.textContent='ABCD'[i];const contenido=document.createElement('span');contenido.className='option-content';btn.append(letra,contenido);btn.addEventListener('click',()=>responder(i));cont.appendChild(btn);}actualizarTextosPregunta();}
+function responder(indice){if(respondida)return;respondida=true;respuestaElegida=indice;const p=seleccionadas[actual],nivel=nivelesJuego[nivelActual];if(indice===p.correcta){puntos+=nivel.puntos;aciertosNivel++;}sonar(indice===p.correcta);actualizarTextosPregunta();document.querySelector('.question-card').classList.remove('answer-pop');void document.querySelector('.question-card').offsetWidth;document.querySelector('.question-card').classList.add('answer-pop');}
 function siguiente(){if(!respondida)return;actual++;if(actual<TOTAL)mostrar();else terminarNivel();}
 function terminarNivel(){
   const nivel=nivelesJuego[nivelActual];
@@ -155,18 +276,21 @@ function celebrarAscenso(anterior,siguiente){
   const nivelVencido=nivelesJuego[anterior],nivelNuevo=nivelesJuego[siguiente];
   const pantallaFiesta=$('celebracion');
   pantallaFiesta.className=`celebration-screen fiesta-${siguiente+1}`;
-  $('celebration-kicker').textContent=siguiente===5?'¡DESAFÍO FINAL DESBLOQUEADO!':'¡LO LOGRASTE!';
-  $('celebration-title').textContent=siguiente===5?'¡LLEGASTE A ANTONELA!':'¡NIVEL SUPERADO!';
-  $('celebration-passed').textContent=`Completaste ${nivelVencido.nombre} · Nivel ${anterior+1}`;
-  $('celebration-next').textContent=`${nivelNuevo.nombre} · NIVEL ${siguiente+1}`;
+  const ingles=idiomaActual==='en';
+  $('celebration-kicker').textContent=siguiente===5?(ingles?'FINAL CHALLENGE UNLOCKED!':'¡DESAFÍO FINAL DESBLOQUEADO!'):(ingles?'YOU DID IT!':'¡LO LOGRASTE!');
+  $('celebration-title').textContent=siguiente===5?(ingles?'YOU REACHED ANTONELA!':'¡LLEGASTE A ANTONELA!'):(ingles?'LEVEL COMPLETE!':'¡NIVEL SUPERADO!');
+  $('celebration-passed').textContent=ingles?`You completed ${nombreNivel(anterior)} · Level ${anterior+1}`:`Completaste ${nombreNivel(anterior)} · Nivel ${anterior+1}`;
+  $('celebration-next').textContent=ingles?`${nombreNivel(siguiente)} · LEVEL ${siguiente+1}`:`${nombreNivel(siguiente)} · NIVEL ${siguiente+1}`;
   const foto=fotosCelebracion[siguiente-1],imagen=$('celebration-photo');
-  imagen.alt=foto.alt;
+  const altsEn=['Messi playing for Barcelona in 2005.','Messi in action at the Joan Gamper Trophy.','Lionel Messi in action for Argentina during the 2022 World Cup in Qatar.','Messi and Argentina celebrate their 2022 World Cup title.','Messi and Antonela together off the pitch.'];
+  imagen.alt=ingles?altsEn[siguiente-1]:foto.alt;
   imagen.src=`https://commons.wikimedia.org/wiki/Special:FilePath/${foto.archivo}?width=1200`;
   imagen.onerror=()=>{imagen.onerror=null;imagen.src='https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=1000';};
-  const enlaceCredito=document.createElement('a');enlaceCredito.href=foto.pagina;enlaceCredito.target='_blank';enlaceCredito.rel='noopener noreferrer';enlaceCredito.textContent=`${foto.titulo} · ${foto.autor} · ${foto.licencia}`;
+  const titulosEn=['Lionel Messi at Barcelona','Messi at the Joan Gamper Trophy','Lionel Messi with Argentina in Qatar 2022','World champions Argentina','Messi and Antonela in Miami'];
+  const enlaceCredito=document.createElement('a');enlaceCredito.href=foto.pagina;enlaceCredito.target='_blank';enlaceCredito.rel='noopener noreferrer';enlaceCredito.textContent=`${ingles?titulosEn[siguiente-1]:foto.titulo} · ${foto.autor} · ${foto.licencia}`;
   $('celebration-photo-credit').replaceChildren(enlaceCredito);
   $('celebration-progress').replaceChildren();
-  nivelesJuego.forEach((nivel,i)=>{const punto=document.createElement('span');if(i<=anterior)punto.className='done';punto.title=`Nivel ${i+1}: ${nivel.nombre}`;$('celebration-progress').append(punto);});
+  nivelesJuego.forEach((nivel,i)=>{const punto=document.createElement('span');if(i<=anterior)punto.className='done';punto.title=`${ingles?'Level':'Nivel'} ${i+1}: ${nombreNivel(i)}`;$('celebration-progress').append(punto);});
   const confeti=$('party-confetti');confeti.replaceChildren();
   const cantidad=28+siguiente*22;
   const colores=siguiente<=2?['#b91f3a','#183b70','#ffffff','#3260a8']:siguiente===5?['#ff6e9f','#111827','#ffffff','#ff9fbd']:['#83d9f4','#ffffff','#f3cf69','#459fd0'];
@@ -216,7 +340,7 @@ function sonar(correcto) {
 }
 $('sound-toggle').addEventListener('click', () => {
   sonidoActivo = !sonidoActivo;
-  $('sound-toggle').textContent = sonidoActivo ? '🔊 Sonido' : '🔇 Silencio';
+  $('sound-toggle').textContent = idiomaActual==='en'?(sonidoActivo?'🔊 Sound':'🔇 Muted'):(sonidoActivo?'🔊 Sonido':'🔇 Silencio');
   $('sound-toggle').setAttribute('aria-pressed', String(sonidoActivo));
 });
 const niveles = {
@@ -228,18 +352,21 @@ const niveles = {
   0: { icono:'📺', nombre:'NIVEL RECIÉN LLEGADO', mensaje:'¿Seguro que sabés quién es Messi?', frase:'¡No pasa nada! Probá otra vez y sorprendete con la historia de Leo.' }
 };
 function resultado({superado=false,antonela=false,partidaFinal=false}={}){
+  ultimoResultado={superado,antonela,partidaFinal};
   pantalla('resultado');
-  const nivel = antonela
+  const nivel = idiomaActual==='en'?(antonela
+    ? {icono:'🏆',nombre:'YOU ARE ANTONELA!',mensaje:'You know Messi so well you could tell him his own life story. You are more than a fan: you are family.',frase:'Final challenge complete: five out of five in the hardest level.'}
+    : {icono:superado?'⚽':'🏁',nombre:superado?`LEVEL COMPLETE: ${nombreNivel(nivelActual-1).toUpperCase()}`:`YOU REACHED: ${nombreNivel(nivelActual).toUpperCase()}`,mensaje:superado?'You got enough answers right and unlocked the next level!':(nivelActual===4&&aciertosNivel>=4?'Antonela unlocks only with 100 points in D10S of Football.':`You needed ${nivelesJuego[nivelActual].aciertos} correct answers to advance.`),frase:superado?`Next challenge: ${nombreNivel(nivelActual)}.`:'Try again to keep progressing.'}) : antonela
     ? {icono:'🏆',nombre:'¡SOS ANTONELA!',mensaje:'Sabés tanto de Messi que podrías contarle su propia vida. Ya no sos un fanático: sos parte de la familia.',frase:'Desafío definitivo completado: cinco de cinco en el nivel más difícil.'}
     : {icono:superado?'⚽':'🏁',nombre:superado?`NIVEL SUPERADO: ${nivelesJuego[nivelActual-1].nombre.toUpperCase()}`:`HASTA ACÁ LLEGASTE: ${nivelesJuego[nivelActual].nombre.toUpperCase()}`,mensaje:superado?'¡Cumpliste los aciertos necesarios y desbloqueaste el siguiente nivel!':(nivelActual===4&&aciertosNivel>=4?'Antonela se desbloquea únicamente con 100 puntos en D10S del Fútbol.':`Necesitabas ${nivelesJuego[nivelActual].aciertos} aciertos para avanzar.`),frase:superado?`Siguiente desafío: ${nivelesJuego[nivelActual].nombre}.`:'Podés volver a intentarlo para seguir avanzando.'};
   $('puntos-finales').textContent = puntosTotales;
   $('max-puntos').textContent = String([100,200,325,475,675,1000][nivelActual] || 1000);
-  $('resumen-final').textContent = `Nivel ${nivelActual+1} · ${aciertosNivel} de ${TOTAL} respuestas correctas en esta ronda. Puntaje acumulado: ${puntosTotales}.`;
+  $('resumen-final').textContent = idiomaActual==='en'?`Level ${nivelActual+1} · ${aciertosNivel} out of ${TOTAL} correct answers this round. Total score: ${puntosTotales}.`:`Nivel ${nivelActual+1} · ${aciertosNivel} de ${TOTAL} respuestas correctas en esta ronda. Puntaje acumulado: ${puntosTotales}.`;
   $('results-icon').textContent = nivel.icono;
   $('result-persona').textContent = nivel.nombre;
   $('mensaje-final').textContent = nivel.mensaje;
   $('result-quote').textContent = nivel.frase;
-  $('result-title').textContent = antonela?'¡DESAFÍO DEFINITIVO COMPLETADO!':(superado?'¡ADELANTE!':'¡Ronda terminada!');
+  $('result-title').textContent = idiomaActual==='en'?(antonela?'FINAL CHALLENGE COMPLETE!':(superado?'ON TO THE NEXT LEVEL!':'ROUND COMPLETE!')):(antonela?'¡DESAFÍO DEFINITIVO COMPLETADO!':(superado?'¡ADELANTE!':'¡Ronda terminada!'));
   if(partidaFinal)cargarRanking('resultados');
   document.querySelector('.results-screen').classList.remove('results-enter');
   void document.querySelector('.results-screen').offsetWidth;
@@ -271,7 +398,7 @@ async function cargarRanking(vista='resultados') {
   const estado=$(inicio?'ranking-inicio-status':'ranking-status');
   const lista=$(inicio?'ranking-inicio-list':'ranking-list');
   const refresh=inicio?null:$('btn-ranking');
-  estado.textContent='Cargando ranking…'; lista.replaceChildren(); if(refresh)refresh.disabled=true;
+  estado.textContent=idiomaActual==='en'?'Loading rankings…':'Cargando ranking…'; lista.replaceChildren(); if(refresh)refresh.disabled=true;
   try {
     const url=new URL(`${SUPABASE_URL}/rest/v1/resultados`);
     url.search=new URLSearchParams({select:'nombre,puntuacion,fecha',order:'puntuacion.desc,fecha.asc',limit:'10'});
@@ -281,26 +408,26 @@ async function cargarRanking(vista='resultados') {
     try { response=await fetch(url,{headers:supabaseHeaders(),signal:abortador.signal,cache:'no-store'}); }
     finally { clearTimeout(timeout); }
     const filas=await respuestaSupabase(response);
-    if (!filas.length) { estado.textContent='Todavía no hay resultados. ¡Sé el primero!'; return; }
+    if (!filas.length) { estado.textContent=idiomaActual==='en'?'No scores yet. Be the first!':'Todavía no hay resultados. ¡Sé el primero!'; return; }
     estado.textContent='';
     filas.forEach((fila,i)=>{
       const li=document.createElement('li'), puesto=document.createElement('span'), nombre=document.createElement('span'), score=document.createElement('strong');
       li.className='ranking-row'; puesto.className='ranking-place'; nombre.className='ranking-name'; score.className='ranking-score';
-      puesto.textContent=String(i+1).padStart(2,'0'); nombre.textContent=fila.nombre; score.textContent=`${fila.puntuacion} PTS`;
+      puesto.textContent=String(i+1).padStart(2,'0'); nombre.textContent=fila.nombre; score.textContent=`${fila.puntuacion} ${idiomaActual==='en'?'PTS':'PTS'}`;
       li.append(puesto,nombre,score); lista.append(li);
     });
   } catch (error) {
     const detalle=error.name==='AbortError'?'La consulta tardó demasiado.':error.message;
-    estado.textContent=`No se pudo cargar el ranking: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas SELECT de RLS).`:''}`;
+    estado.textContent=idiomaActual==='en'?`Could not load rankings: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; check the publishable key, table, and SELECT RLS policies).`:''}`:`No se pudo cargar el ranking: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas SELECT de RLS).`:''}`;
   } finally { if(refresh)refresh.disabled=false; }
 }
 async function guardarResultado(event) {
   event.preventDefault();
   if (partidaGuardada || guardandoPartida || intentoGuardadoIncierto) return;
   const nombre=$('player-name').value.trim();
-  if (!nombre) { $('save-status').textContent='Escribí tu nombre para continuar.'; return; }
+  if (!nombre) { $('save-status').textContent=idiomaActual==='en'?'Enter your name to continue.':'Escribí tu nombre para continuar.'; return; }
   const button=$('btn-guardar'), estado=$('save-status');
-  guardandoPartida=true; button.disabled=true; estado.textContent='Guardando puntuación…';
+  guardandoPartida=true; button.disabled=true; estado.textContent=idiomaActual==='en'?'Saving score…':'Guardando puntuación…';
   try {
     const abortador=new AbortController();
     const timeout=setTimeout(()=>abortador.abort(),12000);
@@ -312,24 +439,26 @@ async function guardarResultado(event) {
     // El POST usa return=minimal: basta el estado HTTP exitoso y no se intenta
     // interpretar ningún cuerpo que PostgREST puede omitir por completo.
     if (!response.ok) await respuestaSupabase(response);
-    partidaGuardada=true; estado.textContent='¡Puntuación guardada!';
+    partidaGuardada=true; estado.textContent=idiomaActual==='en'?'Score saved!':'¡Puntuación guardada!';
     void cargarRanking('resultados');
   } catch (error) {
     const detalle=error.name==='AbortError'?'La solicitud tardó demasiado.':error.message;
     if (error.status) {
       guardandoPartida=false;
       button.disabled=false;
-      estado.textContent=`No se pudo guardar: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas INSERT de RLS).`:''}`;
+      estado.textContent=idiomaActual==='en'?`Could not save: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; check the publishable key, table, and INSERT RLS policies).`:''}`:`No se pudo guardar: ${detalle}${error.status===401||error.status===403||error.status===404?` (HTTP ${error.status}; revisa la Publishable Key, la tabla y las políticas INSERT de RLS).`:''}`;
     } else {
       // Si falla la conexión/timeout, el servidor pudo insertar antes de perderse la respuesta.
       // Bloquear el reintento evita duplicar la misma partida desde esta interfaz.
       guardandoPartida=false;
       intentoGuardadoIncierto=true;
-      estado.textContent=`No se pudo confirmar el guardado: ${detalle}. Para evitar duplicados, esta partida queda bloqueada; actualizá el ranking para comprobar si se guardó.`;
+      estado.textContent=idiomaActual==='en'?`Could not confirm the save: ${detalle}. To prevent duplicates, this game is locked; refresh the rankings to check whether it was saved.`:`No se pudo confirmar el guardado: ${detalle}. Para evitar duplicados, esta partida queda bloqueada; actualizá el ranking para comprobar si se guardó.`;
     }
   }
 }
 $('score-form').addEventListener('submit',guardarResultado);
 $('btn-ranking').addEventListener('click',()=>cargarRanking('resultados'));
 $('btn-ranking-inicio').addEventListener('click',()=>cargarRanking('inicio'));
+$('language-select').addEventListener('change',idiomaCambiado);
+aplicarIdioma();
 cargarRanking('inicio');

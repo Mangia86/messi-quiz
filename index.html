@@ -6,40 +6,40 @@
   <meta name="theme-color" content="#071626" />
   <meta name="description" content="Messi Quiz: seis niveles para demostrar cuánto sabés de Lionel Messi." />
   <title>Messi Quiz | El desafío del 10</title>
-  <link rel="stylesheet" href="style.css?v=gallery-photos" />
+  <link rel="stylesheet" href="style.css?v=bilingual-language" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="script.js?v=max-total-1000" defer></script>
+  <script src="script.js?v=bilingual-language" defer></script>
 </head>
 <body>
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="site-header">
-    <a href="./" class="brand" aria-label="Volver a la pantalla principal de Messi Quiz"><span class="brand-mark">10</span><span>MESSI<span class="brand-accent">QUIZ</span><small>EL DESAFÍO DEL DIEZ</small></span></a>
-    <div class="header-actions"><span class="header-pill"><span class="live-dot"></span> TRIVIA FUTBOLERA</span><button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Activar o desactivar sonidos">🔊 Sonido</button></div>
+    <a href="./" class="brand" aria-label="Volver a la pantalla principal de Messi Quiz"><span class="brand-mark">10</span><span>MESSI<span class="brand-accent">QUIZ</span><small data-i18n="brandTagline">EL DESAFÍO DEL DIEZ</small></span></a>
+    <div class="header-actions"><span class="header-pill" data-i18n="headerPill"><span class="live-dot"></span> TRIVIA FUTBOLERA</span><label class="language-picker"><span class="visually-hidden">Language</span><select id="language-select" aria-label="Choose language"><option value="es">Español</option><option value="en">English</option></select></label><button id="sound-toggle" class="sound-toggle" data-i18n="sound" type="button" aria-pressed="true" title="Activar o desactivar sonidos">🔊 Sonido</button></div>
   </header>
   <main class="main-shell">
     <section id="inicio" class="screen hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <div class="eyebrow"><span>★ ★ ★</span> LA LEYENDA CONTINÚA</div>
-        <h1 id="hero-title">¿CUÁNTO SABÉS<br>DEL <em>GOAT?</em></h1>
-        <p class="hero-subtitle">Del primer gol en Barcelona a la gloria en Qatar. Demostrá que sos un verdadero fan de Lionel Messi.</p>
-        <div class="stats"><div><strong>06</strong><span>NIVELES</span></div><div><strong>10</strong><span>PREGUNTAS POR NIVEL</span></div></div>
-        <button id="btn-comenzar" class="primary-btn">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
-        <button id="btn-ver-galeria" class="gallery-open" type="button">VER FOTOS DE LOS NIVELES <span aria-hidden="true">→</span></button>
-        <p class="microcopy">Gratis · Sin registro · 5 preguntas al azar por nivel</p><div class="hero-tagline">🇦🇷 SEIS NIVELES. UNA SOLA LEYENDA.</div>
+        <div class="eyebrow" data-i18n="heroEyebrow"><span>★ ★ ★</span> LA LEYENDA CONTINÚA</div>
+        <h1 id="hero-title" data-i18n="heroTitle">¿CUÁNTO SABÉS<br>DEL <em>GOAT?</em></h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">Del primer gol en Barcelona a la gloria en Qatar. Demostrá que sos un verdadero fan de Lionel Messi.</p>
+        <div class="stats"><div><strong>06</strong><span data-i18n="levels">NIVELES</span></div><div><strong>10</strong><span data-i18n="questionsPerLevel">PREGUNTAS POR NIVEL</span></div></div>
+        <button id="btn-comenzar" class="primary-btn" data-i18n="start">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
+        <button id="btn-ver-galeria" class="gallery-open" data-i18n="openGallery" type="button">VER FOTOS DE LOS NIVELES <span aria-hidden="true">→</span></button>
+        <p class="microcopy" data-i18n="microcopy">Gratis · Sin registro · 5 preguntas al azar por nivel</p><div class="hero-tagline" data-i18n="heroTagline">🇦🇷 SEIS NIVELES. UNA SOLA LEYENDA.</div>
       </div>
-      <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
-      <section id="ranking-inicio" class="leaderboard home-leaderboard" aria-labelledby="ranking-inicio-title"><div class="leaderboard-heading"><h2 id="ranking-inicio-title">RANKING MUNDIAL</h2><button id="btn-ranking-inicio" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></section>
+      <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption" data-i18n="artCaption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
+      <section id="ranking-inicio" class="leaderboard home-leaderboard" aria-labelledby="ranking-inicio-title"><div class="leaderboard-heading"><h2 id="ranking-inicio-title" data-i18n="worldRanking">RANKING MUNDIAL</h2><button id="btn-ranking-inicio" class="ranking-refresh" data-i18n="refresh" type="button">ACTUALIZAR</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></section>
     </section>
     <section id="galeria" class="screen gallery-screen oculto" aria-labelledby="gallery-title">
-      <div class="gallery-heading"><div><span class="eyebrow">MESSI QUIZ · FOTOS DEL DESAFÍO</span><h1 id="gallery-title">GALERÍA DE NIVELES</h1><p>Las fotos que aparecen en las celebraciones, disponibles para ver cuando quieras.</p></div><button id="btn-volver-inicio" class="gallery-back" type="button">← VOLVER AL INICIO</button></div>
+      <div class="gallery-heading"><div><span class="eyebrow" data-i18n="galleryEyebrow">MESSI QUIZ · FOTOS DEL DESAFÍO</span><h1 id="gallery-title" data-i18n="galleryTitle">GALERÍA DE NIVELES</h1><p data-i18n="gallerySubtitle">Las fotos que aparecen en las celebraciones, disponibles para ver cuando quieras.</p></div><button id="btn-volver-inicio" class="gallery-back" data-i18n="backHome" type="button">← VOLVER AL INICIO</button></div>
       <div id="photo-gallery-grid" class="photo-gallery-grid"></div>
     </section>
     <section id="juego" class="screen game-screen oculto" aria-labelledby="texto-pregunta">
       <div class="game-top"><span id="nivel-actual" class="eyebrow">NIVEL 1 · LA PULGA</span><span id="puntuacion" class="score-pill">★ 0 PUNTOS</span></div>
       <div class="question-meta"><span id="numero-pregunta">PREGUNTA 01 / 05</span><span id="progreso-texto">20% COMPLETADO</span></div>
       <div class="progress-track"><div id="progreso" class="progress-fill"></div></div>
-      <article class="question-card"><div class="question-kicker"><span class="round-icon">⚽</span> PONÉ A PRUEBA TU MEMORIA</div><h2 id="texto-pregunta"></h2><div id="opciones" class="options"></div><p id="mensaje" class="feedback" aria-live="polite"></p></article>
-      <button id="btn-siguiente" class="primary-btn next-btn oculto">SIGUIENTE PREGUNTA <span aria-hidden="true">→</span></button>
+      <article class="question-card"><div class="question-kicker" data-i18n="questionKicker"><span class="round-icon">⚽</span> PONÉ A PRUEBA TU MEMORIA</div><h2 id="texto-pregunta"></h2><div id="opciones" class="options"></div><p id="mensaje" class="feedback" aria-live="polite"></p></article>
+      <button id="btn-siguiente" class="primary-btn next-btn oculto"></button>
     </section>
     <section id="celebracion" class="celebration-screen oculto" aria-labelledby="celebration-title" aria-live="assertive">
       <div id="party-confetti" class="party-confetti" aria-hidden="true"></div>
@@ -49,17 +49,17 @@
         <h2 id="celebration-title">¡NIVEL SUPERADO!</h2>
         <p id="celebration-passed" class="celebration-passed"></p>
         <div class="celebration-arrow" aria-hidden="true">↓</div>
-        <span class="celebration-next-label">SE DESBLOQUEA</span>
+        <span class="celebration-next-label" data-i18n="unlocked">SE DESBLOQUEA</span>
         <p id="celebration-next" class="celebration-next"></p>
         <div id="celebration-progress" class="celebration-progress" aria-label="Progreso de niveles"></div>
-        <button id="btn-entrar-nivel" class="primary-btn celebration-button" type="button">¡VAMOS AL SIGUIENTE! <span aria-hidden="true">→</span></button>
+        <button id="btn-entrar-nivel" class="primary-btn celebration-button" data-i18n="nextLevel" type="button">¡VAMOS AL SIGUIENTE! <span aria-hidden="true">→</span></button>
       </div>
     </section>
-  <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow">FINAL DEL NIVEL</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ <b id="max-puntos">350</b> PUNTOS</span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p>
-    <section id="score-submit" class="score-submit" aria-labelledby="save-title"><h3 id="save-title">SUMÁ TU RESULTADO AL RANKING</h3><form id="score-form"><label for="player-name">Tu nombre</label><div class="score-form-row"><input id="player-name" name="nombre" type="text" maxlength="40" autocomplete="name" placeholder="¿Cómo te llamás?" required><button id="btn-guardar" class="primary-btn" type="submit">GUARDAR PUNTUACIÓN</button></div></form><p id="save-status" class="save-status" aria-live="polite"></p></section>
-    <section id="ranking-resultados" class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">El ranking se carga al abrir esta pantalla.</p><ol id="ranking-list" class="ranking-list"></ol></section>
-    <button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
+  <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow" data-i18n="levelFinal">FINAL DEL NIVEL</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ <b id="max-puntos">350</b> <span data-i18n="points">PUNTOS</span></span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p>
+    <section id="score-submit" class="score-submit" aria-labelledby="save-title"><h3 id="save-title" data-i18n="saveRanking">SUMÁ TU RESULTADO AL RANKING</h3><form id="score-form"><label for="player-name" data-i18n="yourName">Tu nombre</label><div class="score-form-row"><input id="player-name" name="nombre" type="text" maxlength="40" autocomplete="name" placeholder="¿Cómo te llamás?" required><button id="btn-guardar" class="primary-btn" data-i18n="saveScore" type="submit">GUARDAR PUNTUACIÓN</button></div></form><p id="save-status" class="save-status" aria-live="polite"></p></section>
+    <section id="ranking-resultados" class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title" data-i18n="worldRanking">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" data-i18n="refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">El ranking se carga al abrir esta pantalla.</p><ol id="ranking-list" class="ranking-list"></ol></section>
+    <button id="btn-reiniciar" class="primary-btn" data-i18n="playAgain">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
   </main>
-  <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span>HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
+  <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span data-i18n="footer">HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
 </body>
 </html>
