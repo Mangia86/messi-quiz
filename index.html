@@ -25,6 +25,7 @@
         <div class="stats"><div><strong>05</strong><span>PREGUNTAS</span></div><div><strong>20</strong><span>PTS / ACIERTO</span></div><div><strong>100</strong><span>PUNTOS MÁX.</span></div></div>
         <button id="btn-comenzar" class="primary-btn">EMPEZAR EL DESAFÍO <span aria-hidden="true">↗</span></button>
         <p class="microcopy">Gratis · Sin registro · Preguntas al azar</p><div class="hero-tagline">🇦🇷 CINCO PREGUNTAS. UNA SOLA LEYENDA.</div>
+        <button id="btn-ver-ranking-inicio" class="ranking-link" type="button">VER RANKING MUNDIAL ↓</button>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="art-ring ring-a"></div><div class="art-ring ring-b"></div><div class="big-ten">10</div><img class="messi-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lionel_Messi_20180626.jpg?width=700" alt="" onerror="this.style.display='none'"><div class="art-ball">⚽</div><div class="art-caption">LA HISTORIA<br><b>SE ESCRIBE CON EL 10</b></div><span class="star star-a">✦</span><span class="star star-b">✦</span></div>
     </section>
@@ -37,9 +38,10 @@
     </section>
   <section id="resultado" class="screen results-screen oculto" aria-labelledby="result-title"><div id="results-icon" class="results-icon">🏆</div><span class="eyebrow">FINAL DEL PARTIDO</span><h2 id="result-title">¡DESAFÍO COMPLETADO!</h2><div id="result-persona" class="result-persona"></div><p id="mensaje-final" class="result-message"></p><div class="final-score"><strong id="puntos-finales">0</strong><span>/ 100 PUNTOS</span></div><p id="resumen-final" class="result-summary"></p><p id="result-quote" class="result-quote"></p>
     <section class="score-submit" aria-labelledby="save-title"><h3 id="save-title">SUMÁ TU RESULTADO AL RANKING</h3><form id="score-form"><label for="player-name">Tu nombre</label><div class="score-form-row"><input id="player-name" name="nombre" type="text" maxlength="40" autocomplete="name" placeholder="¿Cómo te llamás?" required><button id="btn-guardar" class="primary-btn" type="submit">GUARDAR PUNTUACIÓN</button></div></form><p id="save-status" class="save-status" aria-live="polite"></p></section>
-    <section class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">Cargando ranking…</p><ol id="ranking-list" class="ranking-list"></ol></section>
+    <section id="ranking-resultados" class="leaderboard" aria-labelledby="ranking-title"><div class="leaderboard-heading"><h3 id="ranking-title">RANKING MUNDIAL</h3><button id="btn-ranking" class="ranking-refresh" type="button">ACTUALIZAR</button></div><p id="ranking-status" class="ranking-status" aria-live="polite">El ranking se carga al abrir esta pantalla.</p><ol id="ranking-list" class="ranking-list"></ol></section>
     <button id="btn-reiniciar" class="primary-btn">JUGAR OTRA VEZ <span aria-hidden="true">↗</span></button></section>
   </main>
+  <section id="ranking-inicio" class="ranking-overlay oculto" role="dialog" aria-modal="true" aria-labelledby="ranking-inicio-title"><div class="ranking-dialog"><div class="leaderboard-heading"><h2 id="ranking-inicio-title">RANKING MUNDIAL</h2><button id="btn-cerrar-ranking" class="ranking-refresh" type="button" aria-label="Cerrar ranking">CERRAR ✕</button></div><p id="ranking-inicio-status" class="ranking-status" aria-live="polite">Abriendo ranking…</p><ol id="ranking-inicio-list" class="ranking-list"></ol></div></section>
   <footer class="site-footer"><span>MESSI QUIZ © 2026</span><span>HECHO PARA LOS FANÁTICOS DEL FÚTBOL ⚽</span></footer>
 </body>
 </html>
