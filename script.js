@@ -6,7 +6,7 @@ const nivelesJuego = [
     {pregunta:'¿En qué año nació Messi?',opciones:['1985','1986','1987','1988'],correcta:2},
     {pregunta:'¿Cuál es el nombre completo de Messi?',opciones:['Lionel Andrés Messi Cuccittini','Lionel Antonio Messi','Lionel Alejandro Messi','Lionel Ángel Messi'],correcta:0},
     {pregunta:'¿Qué número de camiseta hizo famoso Messi en Barcelona?',opciones:['7','9','10','11'],correcta:2},
-    {pregunta:'¿Con qué selección ganó el Mundial de 2022?',opciones:['España','Argentina','Italia','Francia'],correcta:1},
+    {pregunta:'¿Con qué selección ganó el Mundial de 2022?',opciones:['España','Argentina','Mozambique','Ninguna, no ganó el mundial 2022'],correcta:1},
     {pregunta:'¿Contra qué selección disputó Argentina la final del Mundial 2022?',opciones:['Croacia','Brasil','Francia','Países Bajos'],correcta:2},
     {pregunta:'¿Cuál es el apellido de la esposa de Messi?',opciones:['Rodríguez','Roccuzzo','Fernández','Martínez'],correcta:1},
     {pregunta:'¿En qué club europeo desarrolló Messi la mayor parte de su carrera?',opciones:['Real Madrid','PSG','Manchester City','Barcelona'],correcta:3},
@@ -52,7 +52,7 @@ const nivelesJuego = [
   {nombre:'D10S del Fútbol', dificultad:'Experto', puntos:40, aciertos:4, preguntas:[
     {pregunta:'¿Contra qué selección marcó Messi dos penales en la final del Mundial Sub-20 de 2005?',opciones:['Brasil','Nigeria','España','Colombia'],correcta:1},
     {pregunta:'¿A qué selección venció Argentina en la final olímpica de Pekín 2008?',opciones:['Camerún','Brasil','Nigeria','Países Bajos'],correcta:2},
-    {pregunta:'¿Cuántos títulos ganó Barcelona durante el histórico sextete de 2009?',opciones:['4','5','6','7'],correcta:2},
+    {pregunta:'¿Cuántos títulos ganó Messi con Barcelona en el historico año 2009?',opciones:['4','5','6','7'],correcta:2},
     {pregunta:'¿En qué estadio marcó Messi contra Manchester United en la final de Champions de 2011?',opciones:['Olímpico de Roma','Wembley','Camp Nou','Old Trafford'],correcta:1},
     {pregunta:'¿Contra qué equipo marcó Messi su gol número 600 con Barcelona mediante un tiro libre?',opciones:['Liverpool','Chelsea','Manchester United','Juventus'],correcta:0},
     {pregunta:'¿Contra qué equipo marcó Messi su gol oficial número 500 con Barcelona?',opciones:['Atlético de Madrid','Sevilla','Real Madrid','Valencia'],correcta:2},
@@ -142,7 +142,7 @@ function celebrarAscenso(anterior,siguiente){
   const fotos=[
     {archivo:'Leo_messi_barce_2005.jpg',titulo:'Lionel Messi con Barcelona',autor:'Josep Tomàs',licencia:'CC BY-SA 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Leo_messi_barce_2005.jpg',alt:'Messi juega para el Barcelona en 2005.'},
     {archivo:'Messi_al_Gamper.jpg',titulo:'Messi en el Trofeo Joan Gamper',autor:'Tsutomu Takasu',licencia:'CC BY 2.0',pagina:'https://commons.wikimedia.org/wiki/File:Messi_al_Gamper.jpg',alt:'Messi en acción con el Barcelona.'},
-    {archivo:'Argentina_national_football_team_-_1_-_2022.jpg',titulo:'Selección argentina 2022',autor:'Franco Brignone',licencia:'CC BY-SA 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Argentina_national_football_team_-_1_-_2022.jpg',alt:'Messi, De Paul y sus compañeros en la selección argentina.'},
+    {archivo:'Lionel_Messi_WC2022.jpg',titulo:'Lionel Messi con Argentina en Qatar 2022',autor:'Hossein Zohrevand / Tasnim News Agency',licencia:'CC BY 4.0',pagina:'https://commons.wikimedia.org/wiki/File:Lionel_Messi_WC2022.jpg',alt:'Lionel Messi en acción con Argentina durante el Mundial de Qatar 2022.'},
     {archivo:'Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',titulo:'Argentina campeona del mundo',autor:'Sebas',licencia:'CC BY 3.0',pagina:'https://commons.wikimedia.org/wiki/File:Argentina_3-3_Francia_-_Copa_Mundial_2022_-_Argentina_campe%C3%B3n.jpg',alt:'Messi y Argentina celebran el título mundial de 2022.'},
     {archivo:'LIONEL_MESSI_-_BRESH_MIAMI.jpg',titulo:'Messi y Antonela en Miami',autor:'Bresh',licencia:'CC BY-SA 4.0',pagina:'https://en.wikipedia.org/wiki/File:LIONEL_MESSI_-_BRESH_MIAMI.jpg',alt:'Messi y Antonela juntos fuera de la cancha.'}
   ];
