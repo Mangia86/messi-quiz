@@ -177,7 +177,13 @@ const SUPABASE_PUBLISHABLE_KEY='sb_publishable_EX6iCsuW_VegLut-GuwZCw_LI0G8fSI';
 let partidaGuardada=false, guardandoPartida=false, intentoGuardadoIncierto=false;
 const $=id=>document.getElementById(id);
 function nombreNivel(index){return idiomaActual==='en'?nombresNivelEn[index]:nivelesJuego[index].nombre;}
-function textoPregunta(p){if(idiomaActual!=='en')return {pregunta:p.pregunta,opciones:p.opciones};const nivel=nivelesJuego.findIndex(n=>n.preguntas.includes(p));const indice=nivelesJuego[nivel].preguntas.indexOf(p);return preguntasEn[nivel][indice];}
+function textoPregunta(p){
+  if(idiomaActual!=='en')return {pregunta:p.pregunta,opciones:p.opciones};
+  const nivel=nivelesJuego.findIndex(n=>n.preguntas.includes(p));
+  if(nivel<0)return {pregunta:p.pregunta,opciones:p.opciones};
+  const indice=nivelesJuego[nivel].preguntas.indexOf(p),traduccion=preguntasEn[nivel]?.[indice];
+  return traduccion?{pregunta:traduccion[0],opciones:traduccion[1]}:{pregunta:p.pregunta,opciones:p.opciones};
+}
 function aplicarIdioma(){
   const ingles=idiomaActual==='en';document.documentElement.lang=idiomaActual;document.title=ingles?'Messi Quiz | The No. 10 Challenge':'Messi Quiz | El desafío del 10';
   document.querySelector('meta[name="description"]').content=ingles?'Messi Quiz: six levels to prove how much you know about Lionel Messi.':'Messi Quiz: seis niveles para demostrar cuánto sabés de Lionel Messi.';
